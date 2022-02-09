@@ -1,0 +1,76 @@
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.carousel {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.carousel .box {
+    width: 25%;
+    padding: .5rem;
+}
+
+.carousel .box .box_chicken{
+    background-color: rgb(250, 250, 250);
+    padding: 1.2rem;
+    font-size: 16px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.carousel .box .box_chicken samp{
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.carousel .box .box_chicken div{
+    font-size: 14px;
+}
+
+.carousel .box .box_chicken .img_chicken{
+    margin: 0 auto 10px auto;
+    width: 100px;
+}
+
+
+
+.slick-prev, .slick-next {
+    background: url(../img/arrows.png);
+    width: 22px;
+    height: 33px;
+    position: absolute;
+    top: 40%;
+    display: block;
+    margin-left: -25px;
+    margin-right: -25px;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    z-index: 100;
+}
+
+.slick-prev {
+    background-position: 0px;
+    left: 0px;
+}
+
+.slick-next {
+    background-position: -22px;
+    right: 0px;
+}
+
+@media only screen and (max-width: 1180px) {
+    .carousel {
+        width: 90%;
+    }
+}

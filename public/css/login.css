@@ -1,0 +1,289 @@
+@font-face {
+    font-family: 'Prompt-Light';
+    src: url(../font/Prompt-Light.ttf);
+}
+
+*{
+    font-family: 'Prompt-Light', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: #FFF4CE;
+}
+
+.container{
+    padding: 0rem 5.75rem;
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 40%;
+    font-size: 48px;
+
+}
+
+.logo img{
+    margin: 0 auto;
+    display: block;
+}
+
+.logo p{
+    font-family: 'Mitr' ;
+    line-height: 45px;
+    white-space: nowrap;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.login{
+    padding: 1.5rem 3rem;
+    width: 40%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.login .connet{
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.connet a{
+    width: 50%;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.connet a:last-child{
+    width: calc(50% + 10px);
+    margin-left: -10px;
+    z-index: 0;
+}
+
+.connet>.active{
+    background-color: #EE5151;
+    color: white;
+    z-index: 1;
+}
+
+.login p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+input[type="text"],input[type="password"],input[type="email"]{
+    border: 2px solid rgb(49, 49, 49);
+    width: 100%;
+    font-size: 18px;
+    padding: 2px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    outline: none;
+}
+
+input:focus{
+    border: 2px solid #EE5151;
+    background: #fff7f7;
+    transition: .2s;
+}
+
+.forget{
+    font-size: 16px;
+    margin-top: 5px;
+    color: black;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+}
+
+.submit{
+    width: 100%;
+    background-color: #EE5151;
+    color: white;
+    font-size: 20px;
+    padding: .25rem;
+    margin-top: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ffffff;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.submit:hover{
+    background-color: #d44848;
+}
+
+.submit:active{
+    background-color: #aa3b3b;
+    color: #facfcf;
+}
+
+.type{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.type label{
+    margin-right: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.type>p{
+    margin: 0;
+    margin-right: 10px;    
+}
+
+#title{
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text,.form_name{
+    display: flex;
+    justify-content: space-between;
+}
+.text p,.form_name>input{
+    width: 49%;
+}
+
+footer{
+    width: 100%;
+    margin-top: 50px;
+    background: white;
+}
+
+@media (max-width: 1025px) {
+    .container{
+        padding: 2.75rem;
+    }
+
+    .login{
+        padding: 2rem;
+        width: 50%;
+    }
+
+    .logo img{
+        width: 180px;
+    }
+    
+    .logo p{
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container{
+        padding: 2.75rem;
+    }
+
+    .login{
+        padding: 2rem;
+        width: 50%;
+    }
+
+    .logo img{
+        width: 160px;
+    }
+    
+    .logo p{
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .connet a{
+        font-size: 18px;
+    }
+
+    .login p{
+        font-size: 16px;
+    }
+    
+    input{
+        font-size: 16px;
+    }
+
+
+}
+
+@media (max-width: 675px) {
+    body{
+        height: 125vh;
+    }
+
+    .container{
+        padding: 2.5rem 1rem ;
+        display: block;
+    }
+
+    .logo,.login{
+        width: 100%;
+    }
+
+    .logo img{
+        width: 120px;
+    }
+
+    .logo>p>br{
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    body{
+        min-height: 125vh;
+        max-height: 150vh;
+    }
+
+    .container{
+        padding: 2rem 1rem ;
+        display: block;
+    }
+
+    .logo>p{
+        font-size: 24px;
+        word-spacing: -6px;
+    }
+
+    .logo>p>br{
+        display: none;
+    }
+
+    .logo,.login{
+        width: 100%;
+    }
+
+    .logo img{
+        width: 120px;
+    }
+
+    .login{
+        margin: 50px 0;
+        padding: 2rem 1rem;
+    }
+}
