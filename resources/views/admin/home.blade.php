@@ -50,7 +50,7 @@
                 <span class="tooltip">ตั้งค่า</span>
             </li>
             <li>
-                <form method="GET" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">
                         <i class='bx bx-log-out'></i>
