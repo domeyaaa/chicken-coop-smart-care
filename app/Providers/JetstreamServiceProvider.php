@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Str;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -30,7 +31,9 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot()
     {
         Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->where('active','1')->first();
+            $email = $request->email;
+            Str::lower($email);
+            $user = User::where('email', $email)->where('active','1')->first();
             if ($user &&
                 Hash::check($request->password, $user->password)) {
                 return $user;
