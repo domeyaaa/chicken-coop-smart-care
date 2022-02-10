@@ -5,10 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\chickenspecie;
-use App\Models\stall;
-use App\Models\food;
-use App\Models\vaccine;
 
 class HomeController extends Controller
 {
@@ -17,7 +13,7 @@ class HomeController extends Controller
 
         $active = Auth::user()->active;
         $role = Auth::user()->role;
-
+        $id = Auth::user()->id;
 
         if ($role == '1' && $active == '1') {
 
@@ -56,7 +52,7 @@ class HomeController extends Controller
         } else if ($role == '0' && $active == '1') {
             return view('home');
         } else {
-            return redirect('logout')->with('error', 'คุณยังไม่ได้รับการอนุมัติบัญชีผู้ใช้');
+            return redirect('/');
         }
     }
 
@@ -70,7 +66,7 @@ class HomeController extends Controller
         } else if ($role == '0' && $active == '1') {
             return view('menu');
         } else {
-            return redirect('logout');
+            return redirect('/');
         }
     }
 
@@ -84,7 +80,7 @@ class HomeController extends Controller
         } else if ($role == '0' && $active == '1') {
             return view('check-egg');
         } else {
-            return redirect('logout');
+            return redirect('/');
         }
     }
 
@@ -98,7 +94,7 @@ class HomeController extends Controller
         } else if ($role == '0' && $active == '1') {
             return view('breed-egg');
         } else {
-            return redirect('logout');
+            return redirect('/');
         }
     }
 }

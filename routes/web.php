@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StallController;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\ChickenController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -91,3 +92,6 @@ Route::get('delete-vaccine',[VaccineController::class,'delVaccine']);
 
 //อนุมัติบัญชีผู้ใช้
 Route::post('active-user',[ManageUserController::class,'activeUser']);
+
+//ไก่ทั้งหมด
+Route::get('chickens',[ChickenController::class,'allChicken']);

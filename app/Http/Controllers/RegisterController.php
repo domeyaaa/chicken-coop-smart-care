@@ -14,7 +14,7 @@ class RegisterController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|Min:8',
         ]);
 
         $user = new User;
