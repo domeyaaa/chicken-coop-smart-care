@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StallController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ChickenController;
+use App\Http\Controllers\NewPasswordController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -95,3 +96,21 @@ Route::post('active-user',[ManageUserController::class,'activeUser']);
 
 //ไก่ทั้งหมด
 Route::get('chickens',[ChickenController::class,'allChicken']);
+
+//ลืมรหัสผ่าน
+Route::get('forget-password',[NewPasswordController::class,'index']);
+
+//ส่ง otp 
+Route::get('send-otp',[NewPasswordController::class,'sendOtp']);
+
+//หน้า กรอก otp
+Route::get('verify',[NewPasswordController::class,'verification']);
+
+//เช็ค OTP
+Route::post('check-otp',[NewPasswordController::class,'checkOtp']);
+
+//หน้าตั้งรหัสผ่านใหม่
+Route::get('new-password',[NewPasswordController::class,'newPassword']);
+
+//บันทึกรหัสผ่านใหม่
+Route::post('save-new-password',[NewPasswordController::class,'saveNewPassword']);

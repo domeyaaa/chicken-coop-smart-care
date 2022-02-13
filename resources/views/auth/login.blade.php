@@ -31,7 +31,7 @@
                 <input type="text" name="email" id="name" type="email" :value="old('email')" required autofocus>
                 <p>รหัสผ่าน :</p>
                 <input type="password" name="password" id="pwd" required autocomplete="current-password">
-                <a href="#" class="forget">ลืมรหัสผ่าน</a>
+                <a href="forget-password" class="forget">ลืมรหัสผ่าน</a>
                 <button type="submit" class="submit">เข้าสู่ระบบ</button>
             </form>
         </div>
