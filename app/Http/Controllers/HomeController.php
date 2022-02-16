@@ -11,11 +11,10 @@ class HomeController extends Controller
     public function home(Request $request)
     {
 
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
         $id = Auth::user()->id;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
 
             $search = $request->search;
             $filter = $request->filter;
@@ -49,7 +48,7 @@ class HomeController extends Controller
                     return view('admin.home', compact('users'));
                 }
             }
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('home');
         } else {
             return redirect('/');
@@ -58,12 +57,11 @@ class HomeController extends Controller
 
     public function menu()
     {
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
             return view('admin.menu');
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('menu');
         } else {
             return redirect('/');
@@ -72,12 +70,11 @@ class HomeController extends Controller
 
     public function checkegg()
     {
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
             return view('admin.home');
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('check-egg');
         } else {
             return redirect('/');
@@ -86,12 +83,11 @@ class HomeController extends Controller
 
     public function breedegg()
     {
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
             return view('admin.home');
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('breed-egg');
         } else {
             return redirect('/');

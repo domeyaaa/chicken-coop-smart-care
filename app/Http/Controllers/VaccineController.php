@@ -10,10 +10,9 @@ class VaccineController extends Controller
 {
     public function manageVaccine(Request $request)
     {
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
 
             $search = $request->search;
             if ($search == null) {
@@ -27,7 +26,7 @@ class VaccineController extends Controller
                 return view('admin.manage-vaccine', compact('vaccines'));
             }
 
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('home');
         } else {
             return redirect('/');

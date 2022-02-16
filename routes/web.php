@@ -33,6 +33,7 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
+// ---------------------------------frontend--------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('home',[HomeController::class,'home']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('menu',[HomeController::class,'menu']);
@@ -50,6 +51,23 @@ Route::middleware(['auth:sanctum', 'verified'])->get('manage-coop',[StallControl
 Route::middleware(['auth:sanctum', 'verified'])->get('manage-food',[FoodController::class,'manageFood']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('manage-vaccine',[VaccineController::class,'manageVaccine']);
+
+//หน้าไก่ทั้งหมด
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/all',[ChickenController::class,'allChicken']);
+
+//หน้าข้อมูลไก่รายตัว
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}',[ChickenController::class,'dataChicken']);
+
+//-------------------------------backend------------------------------------
+
+//หน้าตั้งรหัสผ่านใหม่
+Route::get('new-password',[NewPasswordController::class,'newPassword']);
+
+//หน้า กรอก otp
+Route::get('verify',[NewPasswordController::class,'verification']);
+
+//หน้า ลืมรหัสผ่าน
+Route::get('forget-password',[NewPasswordController::class,'index']);
 
 //สมัคร
 Route::post('save-user',[RegisterController::class,'register']);
@@ -94,23 +112,11 @@ Route::get('delete-vaccine',[VaccineController::class,'delVaccine']);
 //อนุมัติบัญชีผู้ใช้
 Route::post('active-user',[ManageUserController::class,'activeUser']);
 
-//ไก่ทั้งหมด
-Route::get('chickens',[ChickenController::class,'allChicken']);
-
-//ลืมรหัสผ่าน
-Route::get('forget-password',[NewPasswordController::class,'index']);
-
 //ส่ง otp 
 Route::get('send-otp',[NewPasswordController::class,'sendOtp']);
 
-//หน้า กรอก otp
-Route::get('verify',[NewPasswordController::class,'verification']);
-
 //เช็ค OTP
 Route::post('check-otp',[NewPasswordController::class,'checkOtp']);
-
-//หน้าตั้งรหัสผ่านใหม่
-Route::get('new-password',[NewPasswordController::class,'newPassword']);
 
 //บันทึกรหัสผ่านใหม่
 Route::post('save-new-password',[NewPasswordController::class,'saveNewPassword']);

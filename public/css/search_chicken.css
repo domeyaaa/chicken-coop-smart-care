@@ -49,6 +49,8 @@
 .layout>label>img{
     opacity: 0.5;
     width: 30px;
+    cursor: pointer;
+
 }
 
 #layout_box,#layout_list{

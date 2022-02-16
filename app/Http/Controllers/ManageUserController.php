@@ -11,15 +11,14 @@ class ManageUserController extends Controller
 
     public function allUser(Request $request)
     {
-        $active = Auth::user()->active;
         $role = Auth::user()->role;
 
-        if ($role == '1' && $active == '1') {
+        if ($role == '1') {
 
             $users = User::where('active', '=', '1')->where('role', '=', '0')->orderBy('firstname')->get();
 
             return view('admin.all-user', compact('users'));
-        } else if ($role == '0' && $active == '1') {
+        } else if ($role == '0') {
             return view('home');
         } else {
             return redirect('/');

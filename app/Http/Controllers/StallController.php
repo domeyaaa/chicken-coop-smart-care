@@ -10,10 +10,10 @@ class StallController extends Controller
 {
 
     public function manageCoop(Request $request){
-        $active = Auth::user()->active;
+
         $role = Auth::user()->role;
 
-        if($role == '1' && $active == '1'){
+        if($role == '1'){
 
             $search = $request->search;
 
@@ -29,7 +29,7 @@ class StallController extends Controller
             }
             
             
-        }else if($role == '0' && $active == '1'){
+        }else if($role == '0'){
             return view('home');
         }else{
             return redirect('/');

@@ -1,0 +1,155 @@
+.box_content{
+    padding-right: 0;
+}
+
+.record{
+    min-height: 500px;
+    display: flex;
+}
+
+.record_funtion{
+    width: 40%;
+}
+
+.img_chicke{
+    width: 50%;
+    display: block;
+    margin: 40px auto;
+    min-width: 120px;
+    max-width: 150px;
+}
+
+.funtion_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 10px;
+}
+
+.funtion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46%;
+    background-color: #3C82D4;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    color: white;
+    font-size: 16px;
+    transition: .2s;
+    max-width: 175px;
+}
+
+.funtion:hover{
+    background-color: #326fb4;
+}
+
+.funtion.out{
+    width: 97%;
+    max-width: 360px;
+    background-color: #FF3D00;
+}
+
+.funtion.out:hover{
+    background-color: #d63605;
+}
+
+.funtion.edit{
+    background-color: #E57421;
+}
+
+.funtion.edit:hover{
+    background-color: #c5631e;
+}
+
+.funtion.die{
+    background-color: #e23d0b;
+}
+
+.funtion.die:hover{
+    background-color: #bd3208;
+}
+
+.record_chicken{
+    width: 60%;
+    height: fit-content;
+    padding: 2.4rem 0 0 2.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.record_chicken .format{
+    height: fit-content;
+    width: 45%;
+    min-width: 180px;
+    font-size: 16px;
+}
+
+.record_chicken .format:nth-child(even){
+    width: none;
+    min-width: fit-content;
+}
+
+.record_chicken .format>samp{
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+@media (max-width: 1249px) {
+    .record_funtion{
+        width: 30%;
+    }
+    .record_chicken{
+        width: 70%;
+        padding: 1.6rem 0 0 1.6rem;
+        gap: 10px 5px;
+    }
+    .record_chicken .format{
+        font-size: 14px;
+    }
+    
+    .record_chicken .format>samp{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 668px) {
+    .box_content{
+        padding: 1.2rem .8rem;
+    }
+    .record{
+        display: block;
+    }
+    .record_funtion,.record_chicken{
+        width: 100%;
+    }
+    .record_chicken{
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+        padding: 0;
+        min-width: 336px;
+    }
+    .funtion.out{
+        width: 95%;
+    }
+    .record_chicken .format:nth-child(even){
+        width: 150px;
+    }
+    .record_chicken .format>samp{
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 370px) {
+    .record_chicken{
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px 5px;
+        padding: 0;
+    }
+}

@@ -91,7 +91,7 @@
                 <div class="box_content">
                     <div class="funtion">
                         <div class="funtion-box">
-                            <a href="chickens">
+                            <a href="chicken/all">
                                 <img src="./img/selection.png" alt="img_search">
                                 <p>ค้นหา เพิ่ม และแก้ไข</p>
                             </a>
