@@ -9,6 +9,7 @@ use App\Http\Controllers\StallController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\SensorController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -59,6 +60,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('chicken/all',[ChickenContr
 Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}',[ChickenController::class,'dataChicken']);
 
 //-------------------------------backend------------------------------------
+
+//ส่งค่า sensor
+Route::get('send-data-sensor',[SensorController::class,'sendDataSensor']);
 
 //หน้าตั้งรหัสผ่านใหม่
 Route::get('new-password',[NewPasswordController::class,'newPassword']);

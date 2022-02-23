@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\chicken;
-use App\Models\Chickenphase;
+use App\Models\chickenphase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\stall;
-use Chicken as GlobalChicken;
 
 class ChickenController extends Controller
 {
@@ -18,7 +17,7 @@ class ChickenController extends Controller
         if($role == '0'){
             
             $allStall = stall::all();
-            $allPhase = Chickenphase::all();
+            $allPhase = chickenphase::all();
             $allChicken = Chicken::join('chickenphases','chickenphases.id','=','chickens.chicken_phase_id')->join('chickenspecies','chickenspecies.id','=','chickens.chickenspecies_id')->orderBy('chickens.id')->get(['chickens.*','chickenphases.phase_name','chickenspecies.name AS specie_name']);
             $num = chicken::count();
             
