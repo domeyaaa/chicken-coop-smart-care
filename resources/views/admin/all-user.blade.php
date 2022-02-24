@@ -109,7 +109,8 @@
                                             -
                                         @endif
                                     </div>
-                                    <div class="format"><samp>ชื่อ:</samp>{{ $row->titlename }}{{ $row->firstname }}
+                                    <div class="format">
+                                        <samp>ชื่อ:</samp>{{ $row->titlename }}{{ $row->firstname }}
                                         {{ $row->lastname }}</div>
                                     <div class="format fm-type"><samp>ประเภท:</samp>
                                         <?php if ($row->std_id == null) {
@@ -134,75 +135,8 @@
                 </div>
             </div>
         </div>
-
-
-
-
-        <div class="sonser">
-            <div class="username">
-                <i class='bx bxs-user-circle'></i>
-                <div class="name">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</div>
-            </div>
-            <div class="outside">
-                <p>วัดค่าภายนอก</p>
-                <div class="sonser_outside">
-                    <div class="get_sonser">
-                        <img src="./img/temperature.png" alt="img_tem">
-                        <div class="amount">36 °C</div>
-                    </div>
-                    <div class="get_sonser">
-                        <img src="./img/humidity.png" alt="img_humidity">
-                        <div class="amount">76%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="inside">
-                <p>วัดค่าภายใน</p>
-                <div class="sonser_inside">
-                    <div class="get_sonser">
-                        <img src="./img/temperature.png" alt="img_tem">
-                        <div class="amount">36 °C</div>
-                    </div>
-                    <div class="get_sonser">
-                        <img src="./img/humidity.png" alt="img_humidity">
-                        <div class="amount">76%</div>
-                    </div>
-                </div>
-                <div class="sonser_inside">
-                    <div class="get_sonser">
-                        <img src="./img/light.png" alt="img_light">
-                        <div class="amount">15 lx</div>
-                    </div>
-                    <div class="get_sonser">
-                        <img src="./img/NH3.png" alt="img_NH3">
-                        <div class="amount">15%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="analyze">
-                <p>ผลการวิเคราะห์</p>
-                <div class="sonser_analyze">
-                    <div class="get_sonser">
-                        <img src="./img/temperature.png" alt="img_tem">
-                        <div class="amount">ปกติ</div>
-                    </div>
-                    <div class="get_sonser">
-                        <img src="./img/humidity.png" alt="img_humidity">
-                        <div class="amount">ปกติ</div>
-                    </div>
-                </div>
-                <div class="sonser_analyze">
-                    <div class="get_sonser">
-                        <img src="./img/light.png" alt="img_light">
-                        <div class="amount">ค่อนข้างน้อย</div>
-                    </div>
-                    <div class="get_sonser">
-                        <img src="./img/NH3.png" alt="img_NH3">
-                        <div class="amount">ปกติ</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{-- sensor component --}}
+        <x-sensor />
     </div>
     <script src="js/jquery.js"></script>
     <script src="./js/menu.js"></script>
