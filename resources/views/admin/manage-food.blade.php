@@ -14,50 +14,7 @@
 </head>
 
 <body @if (session('success')) onload="success('{{ session('success') }}')" @endif>
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <img src="./img/logo.png" alt="logo">
-                <div class="logo_name">Chicken Coop Smart Care</div>
-            </div>
-            <div class="close">
-                <i class='bx bx-x'></i>
-            </div>
-        </div>
-        <ul class="nav_list">
-            <li>
-                <a href="home">
-                    <i class='bx bx-home'></i>
-                    <span class="link_name">หน้าหลัก</span>
-                </a>
-                <span class="tooltip">หน้าหลัก</span>
-            </li>
-            <li>
-                <a href="menu" class="active_page">
-                    <img class="icon" src="./img/edit.png" alt="img_edit">
-                    <span class="link_name">บันทึกและจัดการ</span>
-                </a>
-                <span class="tooltip">บันทึก จัดการ</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">ตั้งค่า</span>
-                </a>
-                <span class="tooltip">ตั้งค่า</span>
-            </li>
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit">
-                        <i class='bx bx-log-out'></i>
-                        <span class="link_name">ออกจากระบบ</span>
-                    </button>
-                    <span class="tooltip">ออกจากระบบ</span>
-                </form>
-            </li>
-        </ul>
-    </div>
+    <x-AdminSidebar />
     <div class="menu">
         <i class='bx bx-menu' id="btn"></i>
         <div class="username-md">
@@ -238,6 +195,7 @@
         function hide() {
             $(".popup_success").hide();
         }
+        $("#menu").addClass("active_page");
     </script>
 </body>
 

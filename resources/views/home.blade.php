@@ -15,76 +15,12 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <img src="./img/logo.png" alt="logo">
-                <div class="logo_name">Chicken Coop Smart Care</div>
-            </div>
-            <div class="close">
-                <i class='bx bx-x'></i>
-            </div>
-        </div>
-        <ul class="nav_list">
-            <li>
-                <a href="home" class="active_page">
-                    <i class='bx bx-home'></i>
-                    <span class="link_name">หน้าหลัก</span>
-                </a>
-                <span class="tooltip">หน้าหลัก</span>
-            </li>
-            <li>
-                <a href="check-egg">
-                    <img class="icon" src="./img/egg.png" alt="img_egg">
-                    <span class="link_name">บันทึกการให้ไข่</span>
-                </a>
-                <span class="tooltip">บันทึกการให้ไข่</span>
-            </li>
-            <li>
-                <a href="breed-egg">
-                    <img class="icon" src="./img/sexing.png" alt="img_sexing">
-                    <span class="link_name">บันทึกการผสมติด</span>
-                </a>
-                <span class="tooltip">บันทึกการผสมติด</span>
-            </li>
-            <li>
-                <a href="menu">
-                    <img class="icon" src="./img/edit.png" alt="img_edit">
-                    <span class="link_name">บันทึก และดูข้อมูลไก่พันธุ์</span>
-                </a>
-                <span class="tooltip">บันทึก และดูข้อมูลไก่พันธุ์</span>
-            </li>
-            <li>
-                <a href="#">
-                    <img class="icon" src="./img/calendar.png" alt="img_calendar">
-                    <span class="link_name">ดูประวัติค่าอุณหภูมิ ความชื้น <br>และความเข้มแสง</span>
-                </a>
-                <span class="tooltip">ดูประวัติค่าเซนเซอร์</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">ตั้งค่า</span>
-                </a>
-                <span class="tooltip">ตั้งค่า</span>
-            </li>
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit">
-                        <i class='bx bx-log-out'></i>
-                        <span class="link_name">ออกจากระบบ</span>
-                    </button>
-                    <span class="tooltip">ออกจากระบบ</span>
-                </form>
-            </li>
-        </ul>
-    </div>
+    <x-UserSidebar />
     <div class="menu">
         <i class='bx bx-menu' id="btn"></i>
         <div class="username-md">
             <i class='bx bxs-user-circle'></i>
-            <div class="name">{{Auth::user()->firstname}}<br>{{Auth::user()->lastname}}</div>
+            <div class="name">{{ Auth::user()->firstname }}<br>{{ Auth::user()->lastname }}</div>
         </div>
     </div>
     <div class="container">
@@ -114,7 +50,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -128,7 +64,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -142,7 +78,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -156,7 +92,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -170,7 +106,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -184,7 +120,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -198,7 +134,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -212,7 +148,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -226,7 +162,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -240,7 +176,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -254,7 +190,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
 
                             </div><!-- carousel-view -->
                         </div>
@@ -288,7 +224,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -302,7 +238,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -316,7 +252,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -330,7 +266,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -344,7 +280,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -358,7 +294,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -372,7 +308,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -386,7 +322,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -400,7 +336,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -414,7 +350,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                                 <div class="box">
                                     <div class="box_chicken">
                                         <a href="#">
@@ -428,7 +364,7 @@
                                         </a>
                                     </div>
                                 </div><!-- end box -->
-                               
+
                             </div><!-- carousel-view -->
                         </div>
                     </div>
@@ -438,13 +374,16 @@
 
             </div>
         </div>
-    {{-- sensor component --}}
-    <x-sensor /> 
+        {{-- sensor component --}}
+        <x-sensor />
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="./js/menu.js"></script>
     <script src="js/slider.js"></script>
+    <script>
+        $('#home').addClass('active_page');
+    </script>
 </body>
 
 </html>
