@@ -33,9 +33,27 @@ class JetstreamServiceProvider extends ServiceProvider
         Fortify::authenticateUsing(function (Request $request) {
             $emailLogin = Str::lower($request->email);
             $user = User::where('email', $emailLogin)->where('active','1')->first();
-            if ($user &&
-                Hash::check($request->password, $user->password)) {
-                return $user;
+            $n = User::where('email', $emailLogin)->count();
+            $n_active = User::where('email', $emailLogin)->where('active','1')->count();
+
+            if($n > 0){
+                if($n_active > 0){
+                    if ($user && Hash::check($request->password, $user->password)) {
+                        return $user;
+                    }else{
+                        $request->session()->flash('error-login', 'รหัสผ่านไม่ถูกต้อง');
+                        $request->session()->flash('login-email',$request->email);
+                        return false;
+                    }
+                }else{
+                    $request->session()->flash('error-login', 'อีเมลยังไม่ได้รับการอนุมัติ');
+                    $request->session()->flash('login-email',$request->email);
+                    return false;
+                }
+            }else{
+                $request->session()->flash('error-login', 'ไม่พบอีเมลผู้ใช้');
+                $request->session()->flash('login-email',$request->email);
+                return false;
             }
         });
     }

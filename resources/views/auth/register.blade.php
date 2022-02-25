@@ -41,28 +41,32 @@
                         <option value="นางสาว" >นางสาว</option>
                     </select>
                 </div>
-                <p>รหัสนักศึกษา :</p>
-                <input type="text" name="std_id" id="id" required>
+                <p>รหัสนักศึกษา : @if(session('error-std_id'))<span style="color: red">{{ session('error-std_id') }}</span> @endif</p>
+                <input type="text" pattern="[0-9]{9}[-][0-9]{1}" name="std_id" id="id" required @if(session('reg-std_id')) value="{{ session('reg-std_id' ) }}"  @endif>
                 <div class="name">
                     <div class="text">
                         <p>ชื่อ :</p>
                         <p>สกุล :</p>
                     </div>
                     <div class="form_name">
-                        <input type="text" id="fname" name="firstname" required>
-                        <input type="text" id="lname" name="lastname" required>
+                        <input type="text" id="fname" name="firstname" required @if(session('reg-fname')) value="{{ session('reg-fname' ) }}"  @endif>
+                        <input type="text" id="lname" name="lastname" required @if(session('reg-lname')) value="{{ session('reg-lname' ) }}"  @endif>
                     </div>
                 </div>
-                <p>อีเมล :</p>
-                <input type="email" name="email" id="email" required>
-                <p>รหัสผ่าน :</p>
-                <input type="password" name="password" id="pwd" required>
+                <p>อีเมล : @if(session('error-email'))<span style="color: red">{{ session('error-email') }}</span> @endif</p>
+                <input type="email" @if(session('reg-email')) value="{{ session('reg-email' ) }}"  @endif name="email" id="email" required placeholder="example@hotmail.com">
+                <p>รหัสผ่าน : <span id="textpassword" style="color: red"></span></p>
+                <input type="password" name="password" id="pwd" placeholder="รหัสผ่านอย่างน้อย 8 ตัวอักขระ" minlength="8" required>
                 <p>ยืนยันรหัสผ่าน :</p>
-                <input type="password" name="pwd_confrim" id="pwd_confrim" required>
-                <button type="submit" class="submit">สมัครสมาชิก</button>
+                <input type="password" name="pwd_confrim" id="pwd_confrim" placeholder="ยืนยันรหัสผ่าน" minlength="8" required>
+                <button type="submit" onclick="return checkRegister()" class="submit" >สมัครสมาชิก</button>
             </form>
         </div>
     </div>
 </body>
+<script>
+    
+</script>
+<?php $request->session()->forget(['reg-email','reg-std_id','reg-fname','reg-lname']); ?>
 
 </html>

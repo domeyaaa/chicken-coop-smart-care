@@ -10,6 +10,7 @@ use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\SensorController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -58,6 +59,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('chicken/all',[ChickenContr
 
 //หน้าข้อมูลไก่รายตัว
 Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}',[ChickenController::class,'dataChicken']);
+
+//หน้าตั้งค่าโปรไฟล์
+Route::middleware(['auth:sanctum', 'verified'])->get('setting',[SettingController::class,'getProfile']);
 
 //-------------------------------backend------------------------------------
 
@@ -122,5 +126,8 @@ Route::get('send-otp',[NewPasswordController::class,'sendOtp']);
 //เช็ค OTP
 Route::post('check-otp',[NewPasswordController::class,'checkOtp']);
 
-//บันทึกรหัสผ่านใหม่
+//บันทึกรหัสผ่านใหม่ กรณีลืมรหัสผ่าน
 Route::post('save-new-password',[NewPasswordController::class,'saveNewPassword']);
+
+//บันทึกการแก้ไขโปรไฟล์
+Route::post('save-edit-profile',[SettingController::class,'saveEditProfile']);

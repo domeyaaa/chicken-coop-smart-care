@@ -24,13 +24,16 @@
             </div>
             <form action="{{ route('login') }}" method="post">
                 @csrf
-                @if(session("error"))
-                    <center>{{ session("error") }}</center>
+                @if (session('error-login'))
+                    <div style="width: 100%;text-align: center;">
+                        <span
+                            style="color:red;font-size: 20px;font-weight:200;">{{ session('error-login') }}</span>
+                    </div>
                 @endif
                 <p>อีเมล :</p>
-                <input type="text" name="email" id="name" type="email" :value="old('email')" required autofocus>
+                <input type="text" name="email" id="name" type="email" @if(session('login-email')) value="{{ session('login-email') }}" @endif required autofocus >
                 <p>รหัสผ่าน :</p>
-                <input type="password" name="password" id="pwd" required autocomplete="current-password">
+                <input type="password" name="password" id="pwd" required autocomplete="current-password" >
                 <a href="forget-password" class="forget">ลืมรหัสผ่าน</a>
                 <button type="submit" class="submit">เข้าสู่ระบบ</button>
             </form>

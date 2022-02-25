@@ -1,0 +1,154 @@
+.box_content{
+    height: 560px;
+}
+
+.box {
+    display: flex;
+}
+
+.setting {
+    width: 20%;
+}
+
+.setting>div{
+    margin: 10px 0;
+}
+
+.setting>div>a {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+}
+
+.ative_set{
+    color: black !important;
+}
+
+.form_box{
+    width: 80%;
+    margin-top: 90px;
+}
+
+.form{
+    display: flex;
+    width: 100%;
+}
+
+.form_name{
+    width: 150px;
+    padding: 5px 10px;
+}
+
+.form_input{
+    width: 70%;
+    padding: 5px 10px !important;
+}
+
+.form_name>p{
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.inp_style{
+    border: 2px solid rgb(165, 165, 165);
+    width: 100%;
+    margin: 18px 0 0;
+    font-size: 18px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    outline: none;
+}
+
+.inp_style:focus{
+    border: 2px solid rgb(83, 83, 83);
+}
+
+#title_name{
+    border: 2px solid rgb(165, 165, 165);
+    margin: 16px 0 0;
+    font-size: 16px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    outline: none;
+}
+
+.edit_layout,.submit_layout{
+    width: calc(150px + 70%);
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.edit ,.submit ,.cencel{
+    padding: 5px 25px;
+    font-size: 18px;
+    color: white;
+    border: 2px solid rgb(253, 253, 253);
+    box-shadow: 2px 4px 4px rgba(195, 207, 212, 0.35);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit{
+    background-color: #E57421;
+}
+
+.edit:hover{
+    transition: .3s all;
+    color: rgb(214, 214, 214);
+    background-color: #b35919;
+}
+
+.submit{
+    background-color: #29c026;
+}
+
+.submit:hover{
+    transition: .3s all;
+    color: rgb(214, 214, 214);
+    background-color: #23a321;
+}
+
+.cencel{
+    background-color: #CD3333;
+}
+
+.cencel:hover{
+    transition: .3s all;
+    color: rgb(214, 214, 214);
+    background-color: #962424;
+}
+
+@media (max-width: 705px) {
+    .edit_layout,.submit_layout{
+        width:unset;
+        gap: 15px;
+    }
+
+    .box {
+        display: block;
+    }
+
+    .form_box{
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .setting {
+        width: 100%;
+        display: flex;
+    }
+    
+    .setting>div{
+        margin: 10px;
+    }
+
+    .form_input{
+        width: 100%;
+    }
+}
