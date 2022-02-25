@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <x-Sensor />
+        <x-sensor />
     </div>
     <script src="js/jquery.js"></script>
     <script src="./js/menu.js"></script>

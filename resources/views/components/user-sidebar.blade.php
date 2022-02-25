@@ -45,7 +45,7 @@
             <span class="tooltip">ดูประวัติค่าเซนเซอร์</span>
         </li>
         <li>
-            <a href="setting" id="setting">
+            <a href="/setting" id="setting">
                 <i class='bx bx-cog'></i>
                 <span class="link_name">ตั้งค่า</span>
             </a>
