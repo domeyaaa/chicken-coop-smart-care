@@ -120,6 +120,11 @@ a{
     margin: 10px 0;
 }
 
+.container .sonser i.bx-loader-alt{
+    font-size: 14px;
+    animation: spin 2s linear infinite;
+}
+
 @media (max-width: 1249px) {
     .container .contain{
         width: 70%;

@@ -8,11 +8,11 @@
         <div class="sonser_outside">
             <div class="get_sonser">
                 <img src="{{ asset('./img/temperature.png') }}" alt="img_tem">
-                <div class="amount"><span id="tc"></span> °C</div>
+                <div class="amount"><span id="tc"><i class='bx bx-loader-alt'></i></span> °C</div>
             </div>
             <div class="get_sonser">
                 <img src="{{ asset('./img/humidity.png') }}" alt="img_humidity">
-                <div class="amount"><span id="rh"></span> %</div>
+                <div class="amount"><span id="rh"><i class='bx bx-loader-alt'></i></span> %</div>
             </div>
         </div>
     </div>
