@@ -43,24 +43,40 @@ class ChickenSpecieController extends Controller
             'specie_name' => 'required',
         ]);
 
-        $specie = new chickenspecie;
+        $n = chickenspecie::query()->where('name',$request->specie_name)->where('active','1')->count();
 
-        $specie->name = $request->specie_name;
-        $specie->save();
+        if($n > 0 ){
+            return redirect('manage-specie')->with('error', 'ชื่อสายพันธุ์ซ้ำ');
+        }else{
+            $specie = new chickenspecie;
+            $specie->name = $request->specie_name;
 
-        return redirect('manage-specie')->with('success', 'เพิ่มสายพันธุ์ไก่สำเร็จ');
+            if($specie->save()){
+                return redirect('manage-specie')->with('success', 'เพิ่มสายพันธุ์ไก่สำเร็จ');
+            }else{
+                return redirect('manage-specie')->with('error', 'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+            }
+        }
     }
 
     public function editSpecie(Request $request)
     {
 
         $id = $request->id;
+        $n = chickenspecie::query()->where('name',$request->name_edit)->where('active','1')->count();
 
-        $specie =  chickenspecie::find($id);
-        $specie->name = $request->name_edit;
-        $specie->save();
-
-        return redirect('manage-specie')->with('success', 'แก้ไขสำเร็จ');
+        if($n > 0 ){
+            return redirect('manage-specie')->with('error', 'ชื่อสายพันธุ์ซ้ำ');
+        }else{
+            $specie =  chickenspecie::find($id);
+            $specie->name = $request->name_edit;
+            if($specie->save()){
+                return redirect('manage-specie')->with('success', 'แก้ไขชื่อสายพันธุ์สำเร็จ');
+            }else{
+                return redirect('manage-specie')->with('error', 'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+            }
+        }
+        
     }
 
     public function delSpecie(Request $request)
@@ -69,8 +85,13 @@ class ChickenSpecieController extends Controller
 
         $specie = chickenspecie::find($id);
         $specie->active = 0;
-        $specie->save();
+        if($specie->save()){
+            return redirect('manage-specie')->with('success','ลบสายพันธุ์สำเร็จ');
+        }else{
+            return redirect('manage-specie')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
+        
 
-        return redirect('manage-specie')->with('success','ลบสายพันธุ์ไก่สำเร็จ');
+        
     }
 }

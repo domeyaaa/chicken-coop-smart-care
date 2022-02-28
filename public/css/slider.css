@@ -37,7 +37,9 @@
 
 .carousel .box .box_chicken .img_chicken{
     margin: 0 auto 10px auto;
-    width: 100px;
+    max-width: 100px;
+    width: 80%;
+    min-width: 80px;
 }
 
 

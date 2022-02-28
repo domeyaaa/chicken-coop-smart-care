@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="./css/admin_typechicken.css">
 </head>
 
-<body @if (session('success')) onload="success('{{ session('success') }}')" @endif>
+<body @if (session('success')) onload="success('{{ session('success') }}')" @endif @if (session('error')) onload="error('{{ session('error') }}')" @endif>
     <x-AdminSidebar />
     <div class="menu">
         <i class='bx bx-menu' id="btn"></i>
         <div class="username-md">
             <i class='bx bxs-user-circle'></i>
-            <div class="name">thanawat<br>watthanasuchart</div>
+            <div class="name">{{ Auth::user()->firstname}}<br>{{ Auth::user()->lastname }}</div>
         </div>
     </div>
     <div class="container">
@@ -82,17 +82,17 @@
                             <div class="name">
                                 ชื่ออาหาร :
                             </div>
-                            <input type="text" name="name">
+                            <input type="text" name="name" required>
                         </div>
                         <div class="modelformat">
                             <div class="name">
                                 รายละเอียด :
                             </div>
-                            <textarea name="detail" id="detail1" rows="10"></textarea>
+                            <textarea name="detail" id="detail1" rows="10" required></textarea>
                         </div>
                         <div class="todo">
                             <button type="submit" class="submit">ยืนยัน</button>
-                            <button class="cancel">ยกเลิก</button>
+                            <button class="cancel" type="button" onclick="hide()">ยกเลิก</button>
                         </div>
                     </form>
                 </div>
@@ -123,11 +123,11 @@
                             <div class="name">
                                 รายละเอียด :
                             </div>
-                            <textarea name="detail_edit" id="detail" rows="10"></textarea>
+                            <textarea name="detail_edit" id="detail" rows="10" required></textarea>
                         </div>
                         <div class="todo">
                             <button type="submit" class="submit">ยืนยัน</button>
-                            <button class="cancel">ยกเลิก</button>
+                            <button class="cancel" type="button" onclick="hide()">ยกเลิก</button>
                         </div>
                     </form>
                 </div>
@@ -142,7 +142,7 @@
                 <p>ต้องการลบอาหาร <samp id="del_coop"></samp> หรือไม่</p>
                 <div class="model_container">
                     <a href="#" class="submit_delete">ยืนยัน</a>
-                    <a href="" class="delete">ยกเลิก</a>
+                    <a href="#" class="delete" onclick="hide()">ยกเลิก</a>
                 </div>
             </div>
         </div>
@@ -151,9 +151,21 @@
         <div class="popup_model">
             <div class="popup_conetnt">
                 <i class='bx bxs-x-circle'></i>
-                <div class="in-ct-success">
+                <div class="in-ct-success" style="color: green">
                     <i class='bx bx-check bx-lg'></i>
                     <span id="success"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup_error">
+        <div class="popup_model">
+            <div class="popup_conetnt">
+                <i class='bx bxs-x-circle'></i>
+                <div class="in-ct-success" style="color: red">
+                    <i class='bx bx-x bx-lg' ></i>
+                    <span id="error"></span>
                 </div>
             </div>
         </div>
@@ -170,6 +182,7 @@
             $(".popup_edit").hide();
             $(".popup_delete").hide();
             $(".popup_success").hide();
+            $(".popup_error").hide();
 
         })
 
@@ -192,8 +205,18 @@
             timeout = setTimeout(hide, 2400);
         }
 
+        function error(x) {
+            $(".popup_error").show();
+            $('#error').text(x);
+            timeout = setTimeout(hide, 2400);
+        }
+
         function hide() {
+            $(".popup_add").hide();
+            $(".popup_edit").hide();
+            $(".popup_delete").hide();
             $(".popup_success").hide();
+            $(".popup_error").hide();
         }
         $("#menu").addClass("active_page");
     </script>

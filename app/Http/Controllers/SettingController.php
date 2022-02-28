@@ -8,16 +8,25 @@ use App\Models\User;
 
 class SettingController extends Controller
 {
-    public function getProfile(){
+    public function getProfile()
+    {
 
-        $id = Auth::user()->id;
-        $profile = User::find($id);
+        $role = Auth::user()->role;
 
-        return view('setting',compact('profile'));
+        if ($role == '0') {
+            $role = Auth::user()->role;
+            $id = Auth::user()->id;
+            $profile = User::find($id);
 
+            return view('setting', compact('profile'));
+
+        } else {
+            return redirect('/');
+        }
     }
 
-    public function saveEditProfile(){
+    public function saveEditProfile(Request $request)
+    {
         
     }
 }

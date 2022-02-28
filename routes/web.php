@@ -9,6 +9,7 @@ use App\Http\Controllers\StallController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\PhaseController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('manage-coop',[StallControl
 Route::middleware(['auth:sanctum', 'verified'])->get('manage-food',[FoodController::class,'manageFood']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('manage-vaccine',[VaccineController::class,'manageVaccine']);
+
+//หน้าจัดการระยะเติบโต
+Route::middleware(['auth:sanctum', 'verified'])->get('manage-phase',[PhaseController::class,'managePhase']);
 
 //หน้าไก่ทั้งหมด
 Route::middleware(['auth:sanctum', 'verified'])->get('chicken/all',[ChickenController::class,'allChicken']);
@@ -131,3 +135,12 @@ Route::post('save-new-password',[NewPasswordController::class,'saveNewPassword']
 
 //บันทึกการแก้ไขโปรไฟล์
 Route::post('save-edit-profile',[SettingController::class,'saveEditProfile']);
+
+//เพิ่มระยะเติบโต
+Route::post('save-phase',[PhaseController::class,'savePhase']);
+
+//แก้ไขระยะเติบโต
+Route::post('edit-phase',[PhaseController::class,'editPhase']);
+
+//ลบระยะเติบโต
+Route::get('delete-phase',[PhaseController::class,'delPhase']);

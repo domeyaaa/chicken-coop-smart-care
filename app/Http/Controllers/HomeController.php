@@ -12,7 +12,6 @@ class HomeController extends Controller
     {
 
         $role = Auth::user()->role;
-        $id = Auth::user()->id;
 
         if ($role == '1') {
 
@@ -21,16 +20,19 @@ class HomeController extends Controller
 
             if ($search != null) {
                 if ($filter == 1) {
-                    $users = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('id')->where('active','0')->where('role','0')->get();
-
+                    $user1 = User::query()->where('active',0)->where('role',0)->get();
+                    $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
+                    $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
                 }else if($filter == 2){
-                    $users = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('id')->where('active','0')->where('role','0')->where('std_id','!=',null)->get();
-
+                    $user1 = User::query()->where('active',0)->where('role',0)->where('std_id','!=',null)->get();
+                    $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
+                    $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
                 }else{
-                    $users = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->orderBy('id')->where('active','0')->where('role','0')->where('std_id','=',null)->get();
-
+                    $user1 = User::query()->where('active',0)->where('role',0)->where('std_id','=',null)->get();
+                    $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
+                    $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
                 }
             } else {
@@ -49,6 +51,7 @@ class HomeController extends Controller
                 }
             }
         } else if ($role == '0') {
+
             return view('home');
         } else {
             return redirect('/');

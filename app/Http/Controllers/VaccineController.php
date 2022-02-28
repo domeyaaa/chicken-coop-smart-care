@@ -25,10 +25,7 @@ class VaccineController extends Controller
 
                 return view('admin.manage-vaccine', compact('vaccines'));
             }
-
-        } else if ($role == '0') {
-            return view('home');
-        } else {
+        }else {
             return redirect('/');
         }
     }
@@ -40,13 +37,22 @@ class VaccineController extends Controller
             'detail' => 'required',
         ]);
 
-        $vaccine = new vaccine;
+        $n = vaccine::query()->where('name',$request->name)->where('active','1')->count();
 
-        $vaccine->name = $request->name;
-        $vaccine->detail = $request->detail;
-        $vaccine->save();
-
-        return redirect('manage-vaccine')->with('success', 'เพิ่มวัคซีนสำเร็จ');
+        if($n > 0){
+            return redirect('manage-vaccine')->with('error','ชื่อวัคซีนซ้ำ');
+        }else{
+            $vaccine = new vaccine;
+            $vaccine->name = $request->name;
+            $vaccine->detail = $request->detail;
+            
+            if($vaccine->save()){
+                return redirect('manage-vaccine')->with('success', 'เพิ่มวัคซีนสำเร็จ');
+            }else{
+                return redirect('manage-vaccine')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+            }
+        }
+        
     }
 
     public function editVaccine(Request $request)
@@ -57,18 +63,23 @@ class VaccineController extends Controller
         $vaccine = vaccine::find($id);
         $vaccine->name = $request->name_edit;
         $vaccine->detail = $request->detail_edit;
-        $vaccine->save();
-
-        return redirect('manage-vaccine')->with('success', 'แก้ไขสำเร็จ');
+        
+        if($vaccine->save()){
+            return redirect('manage-vaccine')->with('success', 'แก้ไขวัคซีนสำเร็จ');
+        }else{
+            return redirect('manage-vaccine')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
+        
     }
 
     public function delVaccine(Request $request){
         $id = $request->id;
-
         $vaccine = vaccine::find($id);
         $vaccine->active = 0;
         $vaccine->save(); 
-        return redirect('manage-vaccine')->with('success','ลบสำเร็จ');
+
+
+        return redirect('manage-vaccine')->with('success','ลบวัคซีนสำเร็จ');
 
     }
 }

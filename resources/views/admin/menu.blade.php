@@ -31,26 +31,32 @@
                     <div class="funtion">
                         <div class="funtion-box">
                             <a href="manage-specie">
-                                <img src="./img/img_chicken.png" alt="img_chicken">
+                                <img src="{{asset('./img/img_chicken.png')}}" alt="img_chicken">
                                 <p>เพิ่ม ลบ แก้ไข สายพันธุ์ไก่</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="manage-coop">
-                                <img src="./img/coop.png" alt="img_coop">
+                                <img src="{{asset('./img/coop.png')}}" alt="img_coop">
                                 <p>เพิ่ม ลบ แก้ไข คอก</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="manage-food">
-                                <img src="./img/give_food.png" alt="img_food">
+                                <img src="{{asset('./img/give_food.png')}}" alt="img_food">
                                 <p>เพิ่ม ลบ แก้ไข อาหาร</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="manage-vaccine">
-                                <img src="./img/vaccinate.png" alt="img_vaccinate">
+                                <img src="{{asset('./img/vaccinate.png')}}" alt="img_vaccinate">
                                 <p>เพิ่ม ลบ แก้ไข วัดซีน</p>
+                            </a>
+                        </div>
+                        <div class="funtion-box">
+                            <a href="manage-phase">
+                                <img src="{{asset('./img/phase.png')}}" alt="img_vaccinate">
+                                <p>เพิ่ม ลบ แก้ไข ระยะเติบโต</p>
                             </a>
                         </div>
                     </div>

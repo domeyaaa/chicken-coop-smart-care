@@ -33,6 +33,7 @@
                             <div class="pagepwd"><a href="#" class="pagepwd">รหัสผ่าน</a></div>
                         </div>
                         <form action="save-edit-profile" method="post" class="form_box profile">
+                            @csrf
                             <div class="form">
                                 <div class="form_name">
                                     <p>รหัสนักศึกษา :</p>

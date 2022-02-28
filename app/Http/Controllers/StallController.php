@@ -22,15 +22,9 @@ class StallController extends Controller
 
                 return view('admin.manage-coop',compact('stalls'));
             }else{
-
                 $stalls = stall::query()->where('id','LIKE',"%{$search}%")->orWhere('name','LIKE',"%{$search}%")->where('active','=','1')->get();
                 return view('admin.manage-coop',compact('stalls'));
-                
             }
-            
-            
-        }else if($role == '0'){
-            return view('home');
         }else{
             return redirect('/');
         }
@@ -42,24 +36,41 @@ class StallController extends Controller
             'stall_name' => 'required',
         ]);
 
-        $stall = new stall;
+        $n = stall::query()->where('id',$request->stall_id)->where('active','1')->count();
 
-        $stall->id = $request->stall_id;
-        $stall->name = $request->stall_name;
-        $stall->save();
+        if($n >0 ){
+            return redirect('manage-coop')->with('error','รหัสคอกซ้ำ');
+        }else{
+            $stall = new stall;
 
-        return redirect('manage-coop')->with('success','เพิ่มคอกสำเร็จ');
+            $stall->id = $request->stall_id;
+            $stall->name = $request->stall_name;
+            
+            if($stall->save()){
+                return redirect('manage-coop')->with('success','เพิ่มคอกสำเร็จ');
+            }else{
+                return redirect('manage-coop')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+            }
+        }
+        
     }
 
     public function editStall(Request $request){
         
+        $request->validate([
+            'id' => 'required',
+            'name_edit' => 'required',
+        ]);
+
         $id = $request->id;
 
         $stall = stall::find($id);
         $stall->name = $request->name_edit;
-        $stall->save();
-
-        return redirect('manage-coop')->with('success','แก้ไขสำเร็จ');
+        if($stall->save()){
+            return redirect('manage-coop')->with('success','แก้ไขคอกสำเร็จ');
+        }else{
+            return redirect('manage-coop')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
     }
 
     public function delStall(Request $request){
@@ -68,9 +79,10 @@ class StallController extends Controller
 
         $stall = stall::find($id);
         $stall->active = 0;
-        $stall->save();
-
-        return redirect('manage-coop')->with('success','ลบสำเร็จ');
-
+        if($stall->save()){
+            return redirect('manage-coop')->with('success','ลบคอกสำเร็จ');
+        }else{
+            return redirect('manage-coop')->with('error','เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
     }
 }

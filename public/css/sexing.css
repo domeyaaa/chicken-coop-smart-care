@@ -1,0 +1,134 @@
+.form_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 30px;
+}
+
+.inp_style{
+    margin: 15px 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.input{
+    border: 2px solid rgb(165, 165, 165);
+    font-size: 18px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+    outline: none;
+    width: 100px;
+}
+
+.input:focus{
+    border: 2px solid rgb(71, 71, 71);
+    transition: .3s;
+}
+
+.arrow>img{
+    width: 120px;
+}
+
+.img_box{
+    background: #FFFFFF;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 1.4rem;
+}
+
+.img_box>img{
+    display: block;
+    width: 90px;
+    margin: 0 auto;
+}
+
+.img_box>p{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.total{
+    text-align: center;
+}
+
+.button_box{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.submit_box>.button_box>button{
+    width: 25%;
+    min-width: 240px;
+    padding: 5px 25px;
+    font-size: 18px;
+    color: white;
+    border: 2px solid rgb(253, 253, 253);
+    box-shadow: 2px 4px 4px rgba(195, 207, 212, 0.35);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+
+.analyze{
+    background-color: #29c026;
+}
+
+.analyze:hover{
+    transition: .3s all;
+    color: rgb(214, 214, 214);
+    background-color: #23a321;
+}
+
+.reset{
+    background-color: #3C82D4;
+}
+
+.reset:hover{
+    transition: .3s all;
+    color: rgb(214, 214, 214);
+    background-color: #3067a7;
+}
+
+.note_box{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.title_note{
+    font-weight: bold;
+}
+
+.title_note>samp{
+    color: red;
+}
+
+
+@media (max-width: 634px) {
+    .arrow{
+        display: none;
+    }
+
+    .img_box{
+        display: none;
+    }
+
+    .input{
+        width: 140px;
+    }
+
+    .inp_style{
+        gap: 10px;
+    }
+
+    .note{
+        font-size: 14px;
+        margin-top: 2px;
+    }
+}

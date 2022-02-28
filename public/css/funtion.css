@@ -1,5 +1,5 @@
 .box_content{
-    min-height: 800px;
+    min-height: 560px;
 }
 
 .funtion{
@@ -43,9 +43,6 @@
 }
 
 @media (max-width: 768px) {
-    .box_content{
-        min-height: 540px;
-    }
     .funtion-box{
         width: 150px;
     }
@@ -58,11 +55,8 @@
 }
 
 @media (max-width: 520px) {
-    .funtion{
-        justify-content: center;
-    }
     .funtion-box{
-        width: 117px;
+        width: 130px;
     }
     .funtion-box>a>p{
         font-size: 16px;

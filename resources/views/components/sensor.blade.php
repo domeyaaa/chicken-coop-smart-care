@@ -1,3 +1,9 @@
+<style>
+    .bx-loader-alt {
+        animation: spin 2s linear infinite;
+    }
+
+</style>
 <div class="sonser">
     <div class="username">
         <i class='bx bxs-user-circle'></i>

@@ -18,6 +18,38 @@ a{
     margin: 15px 0;
 }
 
+.breadcrumb{
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem .8rem;
+    flex-wrap: wrap;
+    gap: 5px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.breadcrumb .namepage>a{
+    color: grey;
+    white-space: nowrap;
+}
+
+.breadcrumb .namepage>a:hover{
+    color: black;
+    transition: .3s;
+}
+
+.breadcrumb .namepage:last-child>a{
+    color: black;
+}
+
+.breadcrumb .bread{
+    user-select: none;
+    color: gray;
+}
+
 .container .sonser{
     width: 25%;
     padding: 0 0 0 20px;
@@ -26,7 +58,7 @@ a{
 .container .sonser .username{
     background-color: white;
     border-radius: 10px;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 1.5rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -88,7 +120,7 @@ a{
 
 .box_content{
     width: 100%;
-    padding: 1.5em 2em;
+    padding: 1.5em 2em 2em;
     background-color: white;
     border-radius: 10px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -118,11 +150,6 @@ a{
     background: rgb(219, 219, 219);
     border-radius: 10px;
     margin: 10px 0;
-}
-
-.container .sonser i.bx-loader-alt{
-    font-size: 14px;
-    animation: spin 2s linear infinite;
 }
 
 @media (max-width: 1249px) {
@@ -163,7 +190,7 @@ a{
 
 @media (max-width: 520px) {
     .container{
-        padding: 0;
+        padding: 0 5px;
     }
 
     .container h1{
@@ -176,5 +203,9 @@ a{
     
     .box_content{
         padding: 15px;
+    }
+
+    .breadcrumb .namepage>a{
+        font-size: 14px;
     }
 }

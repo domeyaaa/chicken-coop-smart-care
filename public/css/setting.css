@@ -41,7 +41,7 @@
 
 .form_input{
     width: 70%;
-    padding: 5px 10px !important;
+    padding: 5px 0;
 }
 
 .form_name>p{

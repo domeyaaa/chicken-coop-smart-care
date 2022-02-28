@@ -19,21 +19,26 @@ body{
 }
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #bdbdbd8f;
+    margin: 2px;
+    border-radius: 5px;
 }
 
 .sidebar::-webkit-scrollbar-track {
     width: 5px;
     margin: 10px 0;
 }
-  
-  /* Track */
-::-webkit-scrollbar-track {
-    background: #bdbdbd8f;
-}
-   
+
   /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888; 
+    border-radius: 5px;
 }
   
   /* Handle on hover */
@@ -57,7 +62,7 @@ body{
 }
 
 .sidebar.active{
-    width: 350px;
+    width: 380px;
 }
 
 .sidebar .logo_content{
@@ -70,17 +75,18 @@ body{
     width: 100%;
     opacity: 1;
     pointer-events: none;
+    user-select: none;
 }
 
 .sidebar .logo_content .logo .logo_name{
-    font-size: 21px;
+    font-size: 24px;
     opacity: 0;
     white-space: nowrap;
 }
 
 .sidebar.active .logo_content .logo .logo_name{
     opacity: 1;
-    transition: all .4s ease;
+    transition: all .5s ease;
 }
 
 .sidebar.active .logo_content .logo{
@@ -273,7 +279,7 @@ body{
 
     .sidebar.active{
         position: fixed;
-        left: 0px;        
+        left: 0px;
     }
 
     .container .contain h1 {
@@ -295,9 +301,9 @@ body{
     }
 }
 
-@media (max-width: 345px) {
+@media (max-width: 375px) {
     .sidebar.active{
-        width: 320px;
+        width: 100%;
     }
 
     .sidebar .logo_content .logo .logo_name{

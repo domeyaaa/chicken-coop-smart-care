@@ -24,10 +24,6 @@ class FoodController extends Controller
                 $foods = food::query()->where('name','LIKE',"%{$search}%")->where('active','=','1')->orderBy('name')->get();
                 return view('admin.manage-food',compact('foods'));
             }
-
-
-        }else if($role == '0'){
-            return view('home');
         }else{
             return redirect('/');
         }
@@ -39,26 +35,38 @@ class FoodController extends Controller
             'detail' => 'required'
         ]);
 
-        $foods = new food;
+        $n = food::query()->where('name',$request->name)->where('active','1')->count();
 
-        $foods->name = $request->name;
-        $foods->detail = $request->detail;
-        $foods->save();
-
-        return redirect('manage-food')->with('success','เพิ่มอาหารสำเร็จ');
+        if($n > 0 ){
+            return redirect('manage-food')->with('error','ชื่ออาหารซ้ำ');
+        }else{
+            $foods = new food;
+            $foods->name = $request->name;
+            $foods->detail = $request->detail;
+            if($foods->save()){
+                return redirect('manage-food')->with('success','เพิ่มอาหารสำเร็จ');
+            }else{
+                return redirect('manage-food')->with('error', 'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+            }
+        }
     }
 
     public function editFood(Request $request){
+        $request->validate([
+            'id'=> 'required',
+            'name_edit' => 'required',
+            'detail_edit' => 'required'
+        ]);
         
         $id = $request->id;
-
         $food = food::find($id);
         $food->name = $request->name_edit;
         $food->detail = $request->detail_edit;
-        $food->save();
-
-        return redirect('manage-food')->with('success','แก้ไขสำเร็จ');
-
+        if($food->save()){
+            return redirect('manage-food')->with('success','แก้ไขอาหารสำเร็จ');
+        }else{
+            return redirect('manage-food')->with('error', 'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
     }
 
     public function delFood(Request $request){
@@ -67,9 +75,10 @@ class FoodController extends Controller
 
         $food = food::find($id);
         $food->active = 0;
-        $food->save();
-
-        return redirect('manage-food')->with('success','ลบสำเร็จ');
-
+        if($food->save()){
+            return redirect('manage-food')->with('success','ลบอาหารสำเร็จ');
+        }else{
+            return redirect('manage-food')->with('error', 'เกิดข้อผิดพลาด ลองใหม่อีกครั้ง');
+        }
     }
 }

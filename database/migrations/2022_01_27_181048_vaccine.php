@@ -17,6 +17,7 @@ class Vaccine extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('detail',200);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

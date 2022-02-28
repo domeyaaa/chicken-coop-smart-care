@@ -85,13 +85,6 @@ input{
     cursor: pointer;
 }
 
-.error{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    color: #EE5151;
-}
-
 @media (max-width: 1025px) {
     .container{
         padding: 1.25rem;
