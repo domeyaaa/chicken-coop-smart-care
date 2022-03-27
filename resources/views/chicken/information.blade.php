@@ -15,6 +15,7 @@ $now = strtotime('now');
     <link rel="stylesheet" href="{{ asset('./css/menu.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/chicken_record.css') }}">
+
 </head>
 
 <body>
@@ -29,6 +30,13 @@ $now = strtotime('now');
     <div class="container">
         <div class="contain">
             <h1>ข้อมูลไก่พันธุ์</h1>
+            <div class="breadcrumb">
+                <div class="namepage"><a href="/menu">บันทึก และดูข้อมูลไก่พันธุ์</a></div>
+                <div class="bread">></div>
+                <div class="namepage"><a href="/chicken/all">ค้นหาไก่พันธุ์</a></div>
+                <div class="bread">></div>
+                <div class="namepage"><a href="#">ไก่พันธุ์หมายเลข {{$info->id }}</a></div>
+            </div>
             <div class="content">
                 <div class="box_content">
                     <h2>หมายเลขไก่พันธุ์ : {{ $info->id }}</h2>
@@ -36,12 +44,12 @@ $now = strtotime('now');
                         <div class="record_funtion">
                             <img class="img_chicke" src="{{ asset('./img/img_chicken.png') }}" alt="img_chicken">
                             <div class="funtion_box">
-                                <a class="funtion" href="#">ตารางน้ำหนัก</a>
-                                <a class="funtion" href="#">ตารางขนาดตัว</a>
-                                <a class="funtion" href="#">ตารางอาหาร</a>
-                                <a class="funtion" href="#">ตารางวัคซีน</a>
-                                <a class="funtion" href="#">ตารางจับคู่ผสม</a>
-                                <a class="funtion" href="./record_egg.html">ตารางการให้ไข่</a>
+                                <a class="funtion" href="{{$info->id}}/record-weight">ตารางบันทึกน้ำหนัก</a>
+                                <a class="funtion" href="{{$info->id}}/record-body-size">ตารางบันทึกขนาดตัว</a>
+                                <a class="funtion" href="{{$info->id}}/record-feed">ตารางบันทึกการให้อาหาร</a>
+                                <a class="funtion" href="{{$info->id}}/record-vaccine">ตารางบันทึกวัคซีน</a>
+                                <a class="funtion" href="{{$info->id}}/record-breed">ตารางบันทึกคู่ผสม</a>
+                                <a class="funtion" href="{{$info->id}}/record-egg">ตารางการให้ไข่</a>
                                 <a class="funtion out" href="#">ปลดประจำการ</a>
                                 <a class="funtion edit" href="#">แก้ไขข้อมูล</a>
                                 <a class="funtion die" href="#">ตาย</a>
@@ -60,7 +68,7 @@ $now = strtotime('now');
                             <div class="format"><samp>อายุ:</samp><?php $x = strtotime($info->birthday);
 echo floor(($now - $x) / 604800); ?> สัปดาห์</div>
                             <div class="format"><samp>อุณหภูมิขณะฟัก:</samp>?? ํC</div>
-                            <div class="format"><samp>สถานะ:</samp>{{ $info->phase_name }}</div>
+                            <div class="format"><samp>ระยะเติบโต:</samp>{{ $info->phase_name }}</div>
                             <div class="format"><samp>น้ำหนัก:</samp>?? kg</div>
                             <div class="format"><samp>ความยาวรอบอก:</samp>?? cm</div>
                             <div class="format"><samp>ความยาวแข้ง:</samp>?? cm</div>

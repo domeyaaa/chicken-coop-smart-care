@@ -38,6 +38,79 @@ class ChickenController extends Controller
         }else{
             return redirect('/');
         }
-        
+      
     } 
+
+    public function getRecordBodySize($id){
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-bodysize',compact('id'));
+
+        }else{
+            return redirect('/');
+        }
+
+    }
+
+    public function getRecordBreed($id){
+
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-breed',compact('id'));
+
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function getRecordEgg($id){
+
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-egg',compact('id'));
+
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function getRecordVaccine($id){
+        
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-vaccine',compact('id'));
+
+        }else{
+            return redirect('/');
+        } 
+
+    }
+
+    public function getRecordWeight($id){
+
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-weight',compact('id'));
+
+        }else{
+            return redirect('/');
+        } 
+
+    }
+
+    public function getRecordFeed($id){
+        $role = Auth::user()->role;
+        if($role == '0'){
+
+            return view('chicken.record-feed',compact('id'));
+
+        }else{
+            return redirect('/');
+        } 
+    }
 }

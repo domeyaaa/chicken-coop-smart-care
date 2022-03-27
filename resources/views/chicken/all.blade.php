@@ -29,6 +29,11 @@
     <div class="container">
         <div class="contain">
             <h1>ค้นหาไก่พันธุ์</h1>
+            <div class="breadcrumb">
+                <div class="namepage"><a href="/menu">บันทึก และดูข้อมูลไก่พันธุ์</a></div>
+                <div class="bread">></div>
+                <div class="namepage"><a href="#">ค้นหาไก่พันธุ์</a></div>
+            </div>
             <div class="content">
                 <div class="box_content">
                     <div class="top_content">

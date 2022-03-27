@@ -173,7 +173,6 @@
     font-size: 16px;
     overflow-wrap: anywhere;
     width: fit-content;
-    min-width: 205px;
     max-width: 205px;
 }
 
@@ -188,6 +187,7 @@
 .format>samp{
     font-weight: 900;
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 .edit_user{
@@ -297,7 +297,7 @@
 
     .btn_event{
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 0 10px;
         justify-content: left;
     }
 
@@ -323,5 +323,12 @@
 
     #search{
         font-size: 18px;
+    }
+}
+
+@media (max-width: 428px) {
+
+    .user_box .on{
+        top: 40%;
     }
 }

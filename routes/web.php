@@ -67,9 +67,28 @@ Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}',
 //หน้าตั้งค่าโปรไฟล์
 Route::middleware(['auth:sanctum', 'verified'])->get('setting',[SettingController::class,'getProfile']);
 
+//หน้าประวัติขนาดตัว
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-body-size',[ChickenController::class,'getRecordBodySize']);
+
+//หน้าบันทึกคู่ผสมพันธุ์
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-breed',[ChickenController::class,'getRecordBreed']);
+
+//หน้าบันทึกการให้ไข่
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-egg',[ChickenController::class,'getRecordEgg']);
+
+//หน้าบันทึกวัคซีน
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-vaccine',[ChickenController::class,'getRecordVaccine']);
+
+//หน้าบันทึกน้ำหนัก
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-weight',[ChickenController::class,'getRecordWeight']);
+
+//หน้าบันทึกการให้อาหาร
+Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-feed',[ChickenController::class,'getRecordFeed']);
+
+
 //-------------------------------backend------------------------------------
 
-//ส่งค่า sensor
+//ส่งค่า sensor Middle
 Route::get('send-data-sensor',[SensorController::class,'sendDataSensor']);
 
 //หน้าตั้งรหัสผ่านใหม่

@@ -44,19 +44,26 @@
                                 </div>
                                 <div class="form_input">
                                     <input class="inp_style" type="text" name="std_id" id="std_id"
-                                        title="รหัสนักศึกษาแบบมีขีด" pattern="[0-9]{9}[-][0-9]{1}" required disabled value="{{ $profile->std_id }}">
+                                        title="รหัสนักศึกษาแบบมีขีด" pattern="[0-9]{9}[-][0-9]{1}" required disabled
+                                        value="{{ $profile->std_id }}">
                                     <select name="title_name" id="title_name" disabled>
-                                        <option value="นาย" @if($profile->titlename == 'นาย') selected="selected" @endif >นาย</option>
-                                        <option value="นางสาว" @if($profile->titlename == 'นางสาว') selected="selected" @endif>นางสาว</option>
-                                        <option value="นาง" @if($profile->titlename == 'นาง') selected="selected" @endif>นาง</option>
+                                        <option value="นาย"
+                                            @if ($profile->titlename == 'นาย') selected="selected" @endif>นาย</option>
+                                        <option value="นางสาว"
+                                            @if ($profile->titlename == 'นางสาว') selected="selected" @endif>นางสาว</option>
+                                        <option value="นาง"
+                                            @if ($profile->titlename == 'นาง') selected="selected" @endif>นาง</option>
                                     </select>
-                                    <input class="inp_style" type="text" name="fname" id="fname" value="{{ $profile->firstname }}" required disabled>
-                                    <input class="inp_style" type="text" name="lname" id="lname" value="{{ $profile->lastname }}" required disabled>
-                                    <input class="inp_style" type="text" name="email" id="email" value="{{ $profile->email }}" required disabled>
+                                    <input class="inp_style" type="text" name="fname" id="fname"
+                                        value="{{ $profile->firstname }}" required disabled>
+                                    <input class="inp_style" type="text" name="lname" id="lname"
+                                        value="{{ $profile->lastname }}" required disabled>
+                                    <input class="inp_style" type="text" name="email" id="email"
+                                        value="{{ $profile->email }}" required disabled>
                                 </div>
                             </div>
                             <div class="edit_layout">
-                                <button type="button" class="edit edit_pro">แก้ไข</button>
+                                <button type="button" class="edit edit_pro" onclick="setTeacherType()">แก้ไข</button>
                             </div>
                             <div class="submit_layout">
                                 <button type="submit" class="submit">ยืนยัน</button>
@@ -64,7 +71,7 @@
                             </div>
                         </form>
 
-                        <form action="#" method="post" class="form_box pwd">
+                        <form action="save-new-password" method="post" class="form_box pwd">
                             <div class="form">
                                 <div class="form_name">
                                     <p>รหัสผ่านปัจจุบัน :</p>
@@ -72,17 +79,16 @@
                                     <p>ยืนยันรหัสผ่าน :</p>
                                 </div>
                                 <div class="form_input">
-                                    <input class="inp_style" type="text" name="pwd_old" id="pwd_old" required disabled>
-                                    <input class="inp_style" type="text" name="pwd_new" id="pwd_new" required disabled>
-                                    <input class="inp_style" type="text" name="pwd_sup" id="pwd_sup" required disabled>
+                                    <input class="inp_style" type="text" name="pwd_old" id="pwd_old" required
+                                        disabled>
+                                    <input class="inp_style" type="text" name="pwd_new" id="pwd_new" required
+                                        disabled>
+                                    <input class="inp_style" type="text" name="pwd_sup" id="pwd_sup" required
+                                        disabled>
                                 </div>
                             </div>
                             <div class="edit_layout">
-                                <button type="button" class="edit edit_pwd">แก้ไข</button>
-                            </div>
-                            <div class="submit_layout">
                                 <button type="submit" class="submit">ยืนยัน</button>
-                                <button type="button" class="cencel">ยกเลิก</button>
                             </div>
                         </form>
                     </div>
@@ -97,22 +103,31 @@
         $('.submit_layout').hide();
         $('.pwd').hide();
 
-        $('.edit_pro').on('click', ()=>{
-            $('.inp_style').prop('disabled',false)
-            $('#title_name').prop('disabled',false)
-            $('.edit_layout').hide();
-            $('.submit_layout').show();
-            $('#std_id').focus();
+        $('.edit_pro').on('click', () => {
+            $('#title_name').prop('disabled', false);
+            $('.inp_style').prop('disabled', false);
+            let x = $('#std_id').val();
+            if (x == null || x == "") {
+                $('#std_id').prop('disabled', true);
+                $('.edit_layout').hide();
+                $('.submit_layout').show();
+                $('#fname').focus();
+            }else{
+                $('.edit_layout').hide();
+                $('.submit_layout').show();
+                $('#std_id').focus();
+            }
+
         })
 
-        $('.edit_pwd').on('click', ()=>{
-            $('.inp_style').prop('disabled',false)
+        $('.edit_pwd').on('click', () => {
+            $('.inp_style').prop('disabled', false)
             $('.edit_layout').hide();
             $('.submit_layout').show();
             $('#pwd_old').focus();
         })
 
-        $('.pagepro').on('click', ()=>{
+        $('.pagepro').on('click', () => {
             $('.profile').show();
             $('.pwd').hide();
             $('.pagepro').addClass('ative_set');
@@ -121,7 +136,7 @@
             $('.edit_layout').show();
         })
 
-        $('.pagepwd').on('click', ()=>{
+        $('.pagepwd').on('click', () => {
             $('.profile').hide();
             $('.pwd').show();
             $('.pagepwd').addClass('ative_set');
@@ -130,11 +145,9 @@
             $('.edit_layout').show();
         })
 
-        $('.cencel').on('click', ()=>{
+        $('.cencel').on('click', () => {
             location.reload();
         })
-        
-        $("#setting").addClass('active_page');
     </script>
 </body>
 

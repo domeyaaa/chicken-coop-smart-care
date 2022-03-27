@@ -27,21 +27,21 @@
         <div class="sonser_inside">
             <div class="get_sonser">
                 <img src="{{ asset('./img/temperature.png') }}" alt="img_tem">
-                <div class="amount">{{ $sensor->temperature }} °C</div>
+                <div class="amount">{{ $sensor->sm_temperature }} °C</div>
             </div>
             <div class="get_sonser">
                 <img src="{{ asset('./img/humidity.png') }}" alt="img_humidity">
-                <div class="amount">{{ $sensor->humidity }} %</div>
+                <div class="amount">{{ $sensor->sm_humudity }} %</div>
             </div>
         </div>
         <div class="sonser_inside">
             <div class="get_sonser">
                 <img src="{{ asset('./img/light.png') }}" alt="img_light">
-                <div class="amount">? lx</div>
+                <div class="amount">{{ $sensor->sm_light_intensity }} lx</div>
             </div>
             <div class="get_sonser">
                 <img src="{{ asset('./img/NH3.png') }}" alt="img_NH3">
-                <div class="amount">? %</div>
+                <div class="amount">{{ $sensor->sm_ammonia}} %</div>
             </div>
         </div>
     </div>

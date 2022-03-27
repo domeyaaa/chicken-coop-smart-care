@@ -19,9 +19,9 @@
         <li>
             <a href="menu" id="menu">
                 <img class="icon" src="./img/edit.png" alt="img_edit">
-                <span class="link_name">บันทึก และดูข้อมูลไก่พันธุ์</span>
+                <span class="link_name">บันทึกและจัดการ</span>
             </a>
-            <span class="tooltip">บันทึกการให้ไข่</span>
+            <span class="tooltip">บันทึกและจัดการ</span>
         </li>
         <li>
             <a href="#" id="setting">

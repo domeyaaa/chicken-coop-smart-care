@@ -25,6 +25,11 @@
     <div class="container">
         <div class="contain">
             <h1>เพิ่ม ลบ แก้ไข คอก</h1>
+            <div class="breadcrumb">
+                <div class="namepage"><a href="/menu">บันทึกและจัดการ</a></div>
+                <div class="bread">></div>
+                <div class="namepage"><a href="#">เพิ่ม ลบ แก้ไข คอก</a></div>
+            </div>
             <div class="content">
                 <div class="box_content">
                     <div class="top_content">
