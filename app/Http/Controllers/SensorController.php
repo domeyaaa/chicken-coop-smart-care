@@ -7,13 +7,13 @@ use App\Models\sensormid;
 
 class SensorController extends Controller
 {
-    //middle sensor
+    //get data sensor from query string
     public function sendDataSensor(Request $request){
 
-        $temp = $request->temp;
-        $hum = $request->hum;
-        $lux = $request->lux;
-        $ammonia = $request->ammonia;
+        $temp = $request->sm_temperature;
+        $hum = $request->sm_humudity;
+        $lux = $request->sm_light_intensity;
+        $ammonia = $request->sm_ammonia;
 
         $sm = new sensormid();
         $sm->sm_temperature = $temp;

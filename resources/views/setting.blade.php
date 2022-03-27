@@ -148,6 +148,8 @@
         $('.cencel').on('click', () => {
             location.reload();
         })
+
+        $('#setting').addClass('active_page');
     </script>
 </body>
 
