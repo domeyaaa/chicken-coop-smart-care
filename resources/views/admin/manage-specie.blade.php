@@ -41,7 +41,7 @@
                         </form>
                     </div>
                     <div class="add_chicken">
-                        <div class="add"><samp>+</samp>เพิ่มสายพันธุ์ไก่</div>
+                        <div class="add" style="width:190px"><samp>+</samp>เพิ่มสายพันธุ์ไก่</div>
                     </div>
                     <div class="record">
                         <table class="table_egg">

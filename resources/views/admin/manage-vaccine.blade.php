@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/admin_typechicken.css">
+    <style>
+        .form_search {
+            width: 100%;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body @if (session('success')) onload="success('{{ session('success') }}')" @endif @if (session('error')) onload="error('{{ session('error') }}')" @endif>

@@ -47,11 +47,9 @@ class RegisterController extends Controller
         $user->lastname = $request->lastname;
         $user->std_id = $request->std_id;
         $user->email = $request->email;
-        $user->role = 0;
-        $user->role = 0;
+        $user->role = 'user';
         $user->password = Hash::make($request->password);
         $user->save();
-
         return redirect('/')->with('success','สมัครสมาชิกสำเร็จ');
         
     }

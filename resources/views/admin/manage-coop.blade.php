@@ -11,9 +11,17 @@
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/admin_typechicken.css">
+    <style>
+        .form_search {
+            width: 100%;
+            position: relative;
+        }
+
+    </style>
 </head>
 
-<body @if (session('success')) onload="success('{{ session('success') }}')" @endif @if (session('error')) onload="error('{{ session('error') }}')" @endif>
+<body @if (session('success')) onload="success('{{ session('success') }}')" @endif
+    @if (session('error')) onload="error('{{ session('error') }}')" @endif>
     <x-AdminSidebar />
     <div class="menu">
         <i class='bx bx-menu' id="btn"></i>
@@ -163,15 +171,15 @@
             <div class="popup_conetnt">
                 <i class='bx bxs-x-circle'></i>
                 <div class="in-ct-success" style="color: red">
-                    <i class='bx bx-x bx-lg' ></i>
+                    <i class='bx bx-x bx-lg'></i>
                     <span id="error"></span>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{asset('./js/jquery.js')}}"></script>
-    <script src="{{asset('./js/menu.js')}}"></script>
+    <script src="{{ asset('./js/jquery.js') }}"></script>
+    <script src="{{ asset('./js/menu.js') }}"></script>
     <script>
         $('.add_chicken').on('click', () => {
             $(".popup_add").show();
@@ -219,7 +227,6 @@
             $(".popup_error").hide();
         }
         $("#menu").addClass('active_page');
-
     </script>
 </body>
 
