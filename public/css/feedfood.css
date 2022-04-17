@@ -1,0 +1,346 @@
+.container{
+    margin-bottom: 150px;
+}
+
+.box_content{
+    min-height: 600px;
+}
+
+.feed_container{
+    width: 100%;
+    display: flex;
+}
+
+.table{
+    width: 70%;
+}
+
+.form_feed{
+    width: 30%;
+}
+
+table,tr,td,th{
+    border-collapse: collapse;
+    border: none;
+}
+
+th,td{
+    padding: 10px 5px;
+    font-size: 18px;
+}
+
+.thead{
+    width: 100%;
+    background-color: #FDC6C6;
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+}
+
+.tfood th{
+    border: 1px solid white;
+}
+
+.supthead>th{
+    width: 17.5%;
+    border: 1px solid white;
+}
+
+.table_body{
+    width: 100%;
+    max-height: 600px;
+    overflow: auto;
+}
+
+.tbody{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+.tbody tr{
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
+.tbody tr td{
+    text-align: center;
+    padding: 5px;
+    word-break: break-all;
+}
+
+.tbody tr:nth-child(odd){
+    background: #fde7c696;
+}
+
+.tbody tr:nth-child(even){
+    background: #fdc6c68f;
+}
+
+.tbody tr td:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 1px solid snow;
+}
+
+.tbody tr td:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btn-event{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.edit,.delete{
+    display: inline-block;
+    padding: 5px !important;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    border: 2px solid white;
+    width: 55px !important;
+}
+
+.edit{
+    background-color: #E57421;
+}
+
+.edit:hover{
+    transition: .2s;
+    background-color: #c5631e;
+}
+
+.delete{
+    background-color: rgb(218, 5, 5);
+}
+
+.delete:hover{
+    transition: .2s;
+    background-color: rgb(172, 6, 6);
+}
+
+.form_feed>form{
+    padding: 0rem 0 0 1.2rem;
+}
+
+.format-date{
+    font-size: 18px;
+}
+
+.format-date>#date{
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.format_type{
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.typefeed{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.group>label,.group>input[type='radio']{
+    cursor: pointer;
+}
+
+.text_total{
+    margin: 5px 0 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.note{
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(218, 5, 5);
+}
+
+.add_button{
+    background-color: #3C82D4;
+    color: white;
+    font-size: 16px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 5px 0;
+    border: 2px solid white;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.add_button:hover{
+    background-color: #326caf;
+    transition: .2s;
+}
+
+.add_button .bxs-plus-circle{
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+
+.format-id{
+    position: relative;
+    margin: 5px 0;
+}
+
+.inp-id{
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    padding-right: 35px;
+}
+
+.bxs-x-square{
+    position: absolute;
+    top: 1px;
+    right: 0;
+    font-size: 36px;
+    color: rgb(218, 5, 5);
+    transition: .2s;
+}
+
+.bxs-x-square:hover{
+    color: rgb(172, 6, 6);
+    transform:scale(1.1);
+}
+
+.format_coop{
+    display: none;
+}
+
+.format_feed{
+    margin: 5px 0;
+}
+
+.format_feed>p{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.select_food{
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.format{
+    margin: 5px 0;
+    padding: 5px 15px;
+}
+
+.inp,.inp_vaccin{
+    width: 35%;
+    font-size: 16px;
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+.btn-submit{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-submit>button{
+    border-radius: 5px;
+    border: 2px solid white;
+    transition: .2s;
+    font-size: 16px;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    width: 48%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-submit .submit{
+    background-color: #41D63E;
+}
+
+.btn-submit .submit:hover{
+    background-color: #34af32;
+}
+
+.btn-submit .reset{
+    background-color: #3C82D4;
+}
+
+.btn-submit .reset:hover{
+    background-color: #326caf;
+}
+
+@media (max-width: 1248px) {
+    .format{
+        margin: 5px 0;
+        padding: 5px 0 5px 10px;
+    }
+
+    .table {
+        width: 65%;
+    }
+
+    .form_feed {
+        width: 35%;
+    }
+
+    .format_type {
+        display: flex;
+        gap: 15px;
+        margin: 10px 0;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 1067px) {
+    .feed_container{
+        width: 100%;
+        display: block;
+    }
+
+    .table {
+        display: none;
+    }
+
+    .form_feed {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .format-id {
+        margin: 15px 0;
+    }
+
+    .inp,.inp_vaccin {
+        width: 120px;
+    }
+
+    .form_feed>form {
+        padding: 0;
+    }
+
+    .format_feed {
+        margin: 20px 0;
+    }
+
+    .note{
+        margin: 10px 0;
+    }
+}
+

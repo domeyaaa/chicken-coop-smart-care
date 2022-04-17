@@ -13,9 +13,9 @@ class ManageUserController extends Controller
     {
         $role = Auth::user()->role;
 
-        if ($role == '1') {
+        if ($role == 'admin' || $role == 'superadmin') {
 
-            $users = User::where('active', '=', '1')->where('role', '=', '0')->orderBy('firstname')->get();
+            $users = User::where('active', '=', '1')->where('role', '=', 'user')->orderBy('firstname')->get();
 
             return view('admin.all-user', compact('users'));
         } else if ($role == '0') {

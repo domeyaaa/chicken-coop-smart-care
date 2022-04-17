@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Chicken Coop Smart Care</title>
-    <link rel="icon" href="./img/logo.png">
-    <link rel="stylesheet" href="./css/admin_typechicken.css">
-    <link rel="stylesheet" href="./css/menu.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/admin_main.css">
+    <link rel="icon" href="{{asset('./img/logo.png')}}">
+    <link rel="stylesheet" href="{{asset('./css/admin_typechicken.css')}}">
+    <link rel="stylesheet" href="{{asset('./css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('./css/home.css')}}">
+    <link rel="stylesheet" href="{{asset('./css/admin_main.css')}}">
 </head>
 
 <body @if (session('success')) onload="success('{{ session('success') }}')" @endif>
@@ -33,7 +33,7 @@
                             @csrf
                             <input type="text" name="search" id="search" placeholder="ค้นหาบัญชี">
                             <button type="submit" class="btn_search">
-                                <img src="./img/search.png" alt="img_search">
+                                <img src="{{asset('./img/search.png')}}" alt="img_search">
                             </button>
 
                     </div>
@@ -85,7 +85,7 @@
                                         ?>
                                     </div>
                                     <div class="format fm-email"><samp>อีเมล:</samp>{{ $user->email }}</div>
-                                    <div class="format">{{ $user->created_at->diffForHumans() }}</div>
+                                    <div class="format">{{ $user->created_at->format('d/m/Y') }}</div>
                                 </label>
                             @endforeach
 
@@ -116,8 +116,8 @@
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="{{asset('./js/jquery.js')}}"></script>
+    <script src="{{asset('./js/menu.js')}}"></script>
     <script>
         $(".btn_all").on('click', () => {
             $(':checkbox').each(function() {

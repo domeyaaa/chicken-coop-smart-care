@@ -7,6 +7,12 @@ $('.cencel').on('click', () => {
 })
 $('.on').append()
 
+$('.popup').on('click',(event) =>{
+    if($(event.target).is('.popup')){
+      $('.popup').hide();
+    }
+});
+
 $('.inp-num').keypress(function (e) {
     if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
         event.preventDefault();
@@ -20,18 +26,37 @@ $('.plus').on('click', () => {
 
 $('.minus').on('click', () => {
     let num = $('.num').val();
-    if (num > 0) {
+    if (num > 1) {
         $('.num').val(parseInt(num) - 1);
     }
 })
 
-function bred(on,chicken,egg,bred) {
+$('.box_male').on('click', ()=>{
+    if(!$('#id_male').val()){
+        $('.popup_male').css('display', 'flex');
+    }if($(event.target).is('.bx-male')){
+        $('.popup_male').css('display', 'none');
+        n=0;
+    }
+})
+
+$('.box_female').on('click', ()=>{
+    $('.popup_female').css('display', 'flex');
+})
+
+$('.btn_addF').on('click', ()=>{
+    $('.popup_female').css('display', 'flex');
+})
+
+function bred(on,chicken,egg,bred,id) {
     $('.popup-edit').css('display', 'flex');
     $('.on').html(on);
     $('#chicken-bred').val(chicken);
     $('#egg-total').val(egg);
     $('#bred-egg').val(bred);
     $('#chicken-bred').focus();
+    $('#bid').val(id);
+
 }
 
 function popup_delete(on) {
@@ -39,13 +64,14 @@ function popup_delete(on) {
     $('.on').html(on);
 }
 
-function vaccin(on,vaccin,die,weight) {
+function vaccin(on,weight,id) {
     $('.popup-edit').css('display', 'flex');
     $('.on').html(on);
     $('#type-vaccin').val(vaccin);
-    $('#die-chicken').val(die);
     $('#weight').val(weight);
     $('#type-vaccin').focus();
+    $('#vc_id').val(id);
+
 }
 
 function feed(on,old_feed,old_total,new_feed,new_total) {
@@ -72,9 +98,10 @@ function bodysize(on,body,leg) {
     $('.inpbody').focus();
 }
 
-function weight(on, num) {
+function weight(on, num,id) {
     $('.popup-edit').css('display', 'flex');
     $('.on').html(on);
     $('.inp').val(num);
+    $('#id_weight').val(id);
     $('.inp').focus();
 }

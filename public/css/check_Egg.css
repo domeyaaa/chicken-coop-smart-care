@@ -88,7 +88,7 @@
     display: flex;
 }
 
-#coop,#datePicker{
+#coop,#datePicker,#filter,#sex{
     font-size: 18px;
     padding: 5px 10px;
     border-radius: 5px;
@@ -99,6 +99,8 @@
 }
 
 .img_chicken{
+    display: block;
+    margin: 0 auto;
     width: 90px;
 }
 
@@ -112,11 +114,12 @@
     justify-content: left;
     overflow-y: auto;
     overflow-X: hidden;
-    padding: 10px;
+    padding: 10px 10px 10px 5px;
 }
 
 .chicken_box.list{
     display: block;
+    padding: 10px 10px 10px 0;
 }
 
 .chicken_box.list .img_chicken{
@@ -264,16 +267,22 @@
 }
 
 .btn_event{
+    width: 100%;
     display: flex;
     justify-content: right;
     margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.type-box>label{
+    cursor: pointer;
 }
 
 .btn_event>button{
     font-size: 18px;
     border-radius: 10px;
     padding: 5px;
-    margin: 10px 0 10px 15px;
     width: 150px;
     min-width: 90px;
     border: 2px solid white;
@@ -301,7 +310,7 @@
 @media (max-width: 1249px) {
     .chicken_box{
         gap:15px 10px;
-        width: 97%;
+        
     }
 
     .chicken_box>label{
@@ -315,29 +324,30 @@
     .chicken_box.list .on{
         top: 30%;
     }
+    .type_chicken{
+        width: 100%;
+        padding: 5px;
+    }
 }
 
 @media (max-width: 520px) {
 
     .chicken_box{
         gap:15px 10px;
-        width: 95%;
+        width: 97%;
     }
     .coop{
-        white-space: nowrap;
+        white-space: wrap;
     }
 
     .select_show{
         display: block;
         text-align: right;
     }
+
     #coop,#datePicker{
         font-size: 16px;
         margin-bottom: 5px;
-    }
-
-    #search{
-        font-size: 18px;
     }
 
     .chicken_box>label{
@@ -358,5 +368,8 @@
 @media (max-width: 373px) {
     .chicken_box.list .on{
         top: 35%;
+    }
+    .btn_event{
+        gap: 10px;
     }
 }

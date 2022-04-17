@@ -11,7 +11,7 @@ $now = strtotime('now');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Chicken Coop Smart Care</title>
-    <link rel="icon" href="./img/logo.png">
+    <link rel="icon" href="{{asset('./img/logo.png')}}">
     <link rel="stylesheet" href="{{ asset('./css/menu.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('./css/chicken_record.css') }}">
@@ -35,11 +35,11 @@ $now = strtotime('now');
                 <div class="bread">></div>
                 <div class="namepage"><a href="/chicken/all">ค้นหาไก่พันธุ์</a></div>
                 <div class="bread">></div>
-                <div class="namepage"><a href="#">ไก่พันธุ์หมายเลข {{$info->id }}</a></div>
+                <div class="namepage"><a href="#">ไก่พันธุ์รหัส {{$info->id }}</a></div>
             </div>
             <div class="content">
                 <div class="box_content">
-                    <h2>หมายเลขไก่พันธุ์ : {{ $info->id }}</h2>
+                    <h2>ไก่พันธุ์รหัส : {{ $info->id }}</h2>
                     <div class="record">
                         <div class="record_funtion">
                             <img class="img_chicke" src="{{ asset('./img/img_chicken.png') }}" alt="img_chicken">
@@ -56,10 +56,15 @@ $now = strtotime('now');
                             </div>
                         </div>
                         <div class="record_chicken">
-                            <div class="format"><samp>หมายเลขพ่อไก่พันธุ์:</samp>{{ $info->father_id }}</div>
-                            <div class="format"><samp>หมายเลขคอก:</samp>?</div>
-                            <div class="format"><samp>หมายเลขแม่ไก่พันธุ์:</samp>{{ $info->mother_id }}</div>
+                            <div class="format"><samp>รหัสพ่อไก่พันธุ์:</samp>{{ $info->father_id }}</div>
+                            <div class="format"><samp>คอก:</samp>-</div>
+                            <div class="format"><samp>รหัสแม่ไก่พันธุ์:</samp>{{ $info->mother_id }}</div>
                             <div class="format"><samp>พันธุ์ไก่:</samp>{{ $info->specie_name }}</div>
+                            <div class="format"><samp>เพศที่ทำนาย:</samp><?php if ($info->expect_sex == null) {
+                                echo '-';
+                            } else {
+                                echo $info->sex;
+                            } ?></div>
                             <div class="format"><samp>เพศ:</samp><?php if ($info->sex == null) {
     echo '-';
 } else {
@@ -73,7 +78,7 @@ echo floor(($now - $x) / 604800); ?> สัปดาห์</div>
                             <div class="format"><samp>ความยาวรอบอก:</samp>?? cm</div>
                             <div class="format"><samp>ความยาวแข้ง:</samp>?? cm</div>
                             <div class="format"><samp>วันที่เกิด:</samp>{{ $info->birthday }}</div>
-                            <div class="format"><samp>อัตรากาารให้ไข่:</samp>??%</div>
+                            <div class="format"><samp>อัตรากาารให้ไข่:</samp>?? %</div>
                         </div>
                     </div>
                 </div>

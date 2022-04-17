@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Chicken Coop Smart Care</title>
-    <link rel="icon" href="./img/logo.png">
-    <link rel="stylesheet" href="./css/menu.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/funtion.css">
+    <link rel="stylesheet" href="{{asset('./css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('./css/home.css')}}">
+    <link rel="stylesheet" href="{{asset('./css/funtion.css')}}">
 
 </head>
 
@@ -53,10 +52,16 @@
                                 <p>เพิ่ม ลบ แก้ไข วัดซีน</p>
                             </a>
                         </div>
-                        <div class="funtion-box">
+                        {{-- <div class="funtion-box">
                             <a href="manage-phase">
                                 <img src="{{asset('./img/phase.png')}}" alt="img_vaccinate">
                                 <p>เพิ่ม ลบ แก้ไข ระยะเติบโต</p>
+                            </a>
+                        </div> --}}
+                        <div class="funtion-box">
+                            <a href="/report">
+                                <img src="{{asset('./img/report.png')}}" alt="img_report">
+                                <p>รายงาน</p>
                             </a>
                         </div>
                     </div>
@@ -66,8 +71,8 @@
         {{-- sensor component --}}
         <x-sensor />
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="{{asset('./js/jquery.js')}}"></script>
+    <script src="{{asset('./js/menu.js')}}"></script>
     <script>
         $("#menu").addClass("active_page");
     </script>

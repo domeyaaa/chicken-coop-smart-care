@@ -1,0 +1,183 @@
+.box_content{
+    display: flex;
+}
+
+.img_chicken{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_chicken>img{
+    width: 150px;
+    margin-top: -100px;
+}
+
+.form-input{
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    height: fit-content;
+    gap: 0 17px;
+    padding: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.format-box{
+    width: 48%;
+}
+
+.format{
+    width: 100%;
+    min-width: 200px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.check-box{
+    width: 100%;
+    padding-left: 140px;
+    margin-top: -25px;
+    margin-bottom: 5px;
+}
+
+.format>samp{
+    white-space: nowrap;
+}
+
+.format>.inp-text{
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    padding: 2px;
+    border: 2px solid black;
+    font-size: 18px;
+}
+
+.format>select ,.format>#born{
+    border-radius: 5px;
+    padding: 2px;
+    border: 2px solid black;
+    font-size: 18px;
+}
+
+.btn-event{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-event>button,.btn-event>a{
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 95px;
+    border: 2px solid white;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.submit{
+    background: #10C00D;
+}
+
+.submit:hover{
+    background: #0c9c09;
+    transition: .3s;
+}
+
+.reset{
+    background: #3C82D4;
+}
+
+.reset:hover{
+    background: #2c619e;
+    transition: .3s;
+}
+
+.btn-event>a{
+    background: #CD3333;
+}
+
+.btn-event>a:hover{
+    background: #a12727;
+    transition: .3s;
+}
+
+.format-md,.format-weight,
+.format-lenght,.format-bodysize,
+.format-sex{
+    display: none;
+}
+
+span.require{
+    font-weight: bold;
+    color: #CD3333;
+}
+
+@media (max-width: 1248px) {
+    .box_content{
+        display: block;
+    }
+
+    .img_chicken{
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .form-input{
+        width: 100%;
+        padding: 1.2rem 0;
+    }
+
+    .img_chicken>img{
+        width: 150px;
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .format,.format>.inp-text,.format>select ,.format>#born{
+        font-size: 16px;
+    }
+    .check-box{
+        width: 100%;
+        padding-left: 125px;
+        margin-top: -27px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 714px) {
+    .format-box{
+        width: 100%;
+    }
+
+    .format-md{
+        display: flex !important;
+    }
+
+    .format-hind{
+        display: none !important;
+    }
+}
+
+@media (max-width: 466px) {
+    .box_content{
+        display: block;
+        padding: 1.2rem .8rem;
+    }
+
+    .form-input{
+        gap: 0px 25px;
+    }
+}

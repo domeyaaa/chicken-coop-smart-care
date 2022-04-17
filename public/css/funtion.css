@@ -16,12 +16,17 @@
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     cursor: pointer;
-    padding: 1.2rem;
-    transition: .2s;
+    transition: .3s;
 }
 
 .funtion-box:hover{
     background-color: rgb(235, 235, 235);
+    transform:scale(1.025);
+}
+
+.funtion-box>a{
+    width: 100%;
+    padding: 1.2rem;
 }
 
 .funtion-box>a>img{

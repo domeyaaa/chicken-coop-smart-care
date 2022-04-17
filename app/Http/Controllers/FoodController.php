@@ -13,7 +13,7 @@ class FoodController extends Controller
     public function manageFood(Request $request){
         $role = Auth::user()->role;
 
-        if($role == '1'){
+        if($role == 'admin' || $role == 'superadmin'){
 
             $search = $request->search;
             if($search == null){

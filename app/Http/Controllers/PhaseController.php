@@ -13,7 +13,7 @@ class PhaseController extends Controller
 
         $role = Auth::user()->role;
 
-        if($role == "1"){
+        if($role == "admin" || $role == "superadmin"){
 
             $search = $request->search;
             

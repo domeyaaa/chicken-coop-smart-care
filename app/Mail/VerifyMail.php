@@ -29,6 +29,6 @@ class VerifyMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('ยืนยันตัวตน ชิกเก้นคูปสมาร์ตแคร์(Chicken Coop Smart Care)')->view('emails.verification');
+        return $this->subject('ตั้งรหัสผ่านใหม่ ชิกเก้นคูปสมาร์ตแคร์(Chicken Coop Smart Care)')->view('emails.verification');
     }
 }

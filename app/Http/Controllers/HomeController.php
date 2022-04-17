@@ -13,24 +13,24 @@ class HomeController extends Controller
 
         $role = Auth::user()->role;
 
-        if ($role == '1') {
+        if ($role == 'admin' || $role == 'superadmin') {
 
             $search = $request->search;
             $filter = $request->filter;
 
             if ($search != null) {
                 if ($filter == 1) {
-                    $user1 = User::query()->where('active',0)->where('role',0)->get();
+                    $user1 = User::query()->where('active',0)->where('role','user')->get();
                     $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
                     $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
                 }else if($filter == 2){
-                    $user1 = User::query()->where('active',0)->where('role',0)->where('std_id','!=',null)->get();
+                    $user1 = User::query()->where('active',0)->where('role','user')->where('std_id','!=',null)->get();
                     $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
                     $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
                 }else{
-                    $user1 = User::query()->where('active',0)->where('role',0)->where('std_id','=',null)->get();
+                    $user1 = User::query()->where('active',0)->where('role','user')->where('std_id','=',null)->get();
                     $user2 = User::query()->where('firstname', 'LIKE', "%{$search}%")->orWhere('lastname', 'LIKE', "%{$search}%")->orWhere('std_id', 'LIKE', "%{$search}%")->orWhere('email', 'LIKE', "%{$search}%")->get();
                     $users = $user2->intersect($user1);
                     return view('admin.home', compact('users'));
@@ -50,7 +50,7 @@ class HomeController extends Controller
                     return view('admin.home', compact('users'));
                 }
             }
-        } else if ($role == '0') {
+        } else if ($role == 'user') {
 
             return view('home');
         } else {
@@ -62,23 +62,10 @@ class HomeController extends Controller
     {
         $role = Auth::user()->role;
 
-        if ($role == '1') {
+        if ($role == 'admin' || $role == 'superadmin') {
             return view('admin.menu');
-        } else if ($role == '0') {
+        } else if ($role == 'user') {
             return view('menu');
-        } else {
-            return redirect('/');
-        }
-    }
-
-    public function checkegg()
-    {
-        $role = Auth::user()->role;
-
-        if ($role == '1') {
-            return view('admin.home');
-        } else if ($role == '0') {
-            return view('check-egg');
         } else {
             return redirect('/');
         }
@@ -88,9 +75,9 @@ class HomeController extends Controller
     {
         $role = Auth::user()->role;
 
-        if ($role == '1') {
+        if ($role == 'admin' || $role == 'superadmin') {
             return view('admin.home');
-        } else if ($role == '0') {
+        } else if ($role == 'user') {
             return view('breed-egg');
         } else {
             return redirect('/');

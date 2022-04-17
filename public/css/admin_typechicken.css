@@ -16,7 +16,7 @@ h2{
 }
 
 .form_search{
-    width: 100%;
+    width: 90%;
     position: relative;
 }
 
@@ -67,7 +67,7 @@ h2{
 
 .add_chicken .add{
     text-align: center;
-    width: 170px;
+    width: 150px;
     font-size: 18px;
     background-color: #4793ED;
     padding: 5px 10px;
@@ -218,24 +218,6 @@ h2{
     padding: 1.2rem;
 }
 
-.popup_success #success, .popup_error #error{
-    width: 100%;
-    justify-content: center;
-    font-size: 23px;
-    display: flex;
-    padding: 20px 0;
-    font-weight: 500;
-    width: fit-content;
-}
-
-.in-ct-success{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
 .popup_model{
     display: flex;
     width: 100%;
@@ -253,18 +235,8 @@ h2{
     width: 650px;
 }
 
-.popup_success .popup_conetnt,.popup_error .popup_conetnt{
-    position: relative;
-    gap: 15px 30px;
-    background-color: white;
-    padding: 1.2rem;
-    border-radius: 10px;
-    width: 450px;
-}
-
 .popup_conetnt>p{
     font-size: 18px;
-    text-align: center;
 }
 
 .popup_delete .popup_conetnt{
@@ -274,6 +246,13 @@ h2{
     padding: 1.2rem;
     border-radius: 10px;
     width: 350px;
+}
+
+.in-ct-success{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .popup_delete .popup_conetnt .model_container{

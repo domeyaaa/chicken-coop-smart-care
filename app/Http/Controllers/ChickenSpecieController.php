@@ -15,7 +15,7 @@ class ChickenSpecieController extends Controller
     {
         $role = Auth::user()->role;
 
-        if ($role == '1') {
+        if ($role == 'admin' || $role == 'superadmin') {
 
             $search = $request->search;
             if ($search == null) {
@@ -27,7 +27,7 @@ class ChickenSpecieController extends Controller
                 $species = chickenspecie::query()->where('name', 'LIKE', "%{$search}%")->where('active', '=', '1')->get();
                 return view('admin.manage-specie', compact('species'));
             }
-        } else if ($role == '0') {
+        } else if ($role == 'user') {
 
             return view('home');
         } else {

@@ -20,7 +20,7 @@
         <i class='bx bx-menu' id="btn"></i>
         <div class="username-md">
             <i class='bx bxs-user-circle'></i>
-            <div class="name">thanawat<br>watthanasuchart</div>
+            <div class="name">{{Auth::user()->firstname}}<br>{{Auth::user()->lastname}}</div>
         </div>
     </div>
     <div class="container">
@@ -31,62 +31,56 @@
                     <div class="funtion">
                         <div class="funtion-box">
                             <a href="chicken/all">
-                                <img src="./img/selection.png" alt="img_search">
+                                <img src="{{asset('./img/selection.png')}}" alt="img_search">
                                 <p>ค้นหา เพิ่ม และแก้ไข</p>
                             </a>
                         </div>
                         <div class="funtion-box">
-                            <a href="#">
-                                <img src="./img/sex.png" alt="img_sex">
+                            <a href="sexing">
+                                <img src="{{asset('./img/sex.png')}}" alt="img_sex">
                                 <p>ทำนายเพศของลูกไก่</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="#">
-                                <img src="./img/give_food.png" alt="img_food">
+                                <img src="{{asset('./img/give_food.png')}}" alt="img_food">
                                 <p>ให้อาหาร</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="#">
-                                <img src="./img/vaccinate.png" alt="img_vaccinate">
+                                <img src="{{asset('./img/vaccinate.png')}}" alt="img_vaccinate">
                                 <p>ฉีดวัดซีน</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="#">
-                                <img src="./img/weight.png" alt="img_weight">
-                                <p>บันทึกน้ำหนักตัวรายสัปดาห์</p>
+                                <img src="{{asset('./img/weight.png')}}" alt="img_weight">
+                                <p>บันทึกน้ำหนัก</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="#">
-                                <img src="./img/body_size.png" alt="img_bodysize">
-                                <p>บันทึกขนาดตัวรายสัปดาห์</p>
+                                <img src="{{asset('./img/body_size.png')}}" alt="img_bodysize">
+                                <p>บันทึกขนาดตัว</p>
                             </a>
                         </div>
                         <div class="funtion-box">
                             <a href="#">
-                                <img src="./img/get_chicken.png" alt="img_getchicken">
+                                <img src="{{asset('./img/get_chicken.png')}}" alt="img_getchicken">
                                 <p>คัดเลือกไก่พันธุ์</p>
                             </a>
                         </div>
                         <div class="funtion-box">
-                            <a href="#">
-                                <img src="./img/compare.png" alt="img_compare">
+                            <a href="/compare-yield">
+                                <img src="{{asset('./img/compare.png')}}" alt="img_compare">
                                 <p>เปรียบเทียบการให้ผลผลิต</p>
                             </a>
                         </div>
                         <div class="funtion-box">
-                            <a href="#">
-                                <img src="./img/love.png" alt="img_live">
+                            <a href="/breed">
+                                <img src="{{asset('./img/love.png')}}" alt="img_live">
                                 <p>จับคู่ผสม</p>
-                            </a>
-                        </div>
-                        <div class="funtion-box">
-                            <a href="#">
-                                <img src="./img/report.png" alt="img_report">
-                                <p>รายงาน</p>
                             </a>
                         </div>
                     </div>

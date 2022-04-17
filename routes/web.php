@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BreedController;
+use App\Http\Controllers\CheckEggController;
 use App\Http\Controllers\ChickenSpecieController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
@@ -8,10 +10,13 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StallController;
 use App\Http\Controllers\VaccineController;
 use App\Http\Controllers\ChickenController;
+use App\Http\Controllers\ComparisonController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PhaseController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SexingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -37,14 +42,19 @@ Route::get('/', function () {
 // })->name('dashboard');
 
 // ---------------------------------frontend--------------------------------
+//หน้าหลัก
 Route::middleware(['auth:sanctum', 'verified'])->get('home',[HomeController::class,'home']);
 
+//หน้าเมนู
 Route::middleware(['auth:sanctum', 'verified'])->get('menu',[HomeController::class,'menu']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('check-egg',[HomeController::class,'checkegg']);
+//หน้าบันทึกการให้ไข่
+Route::middleware(['auth:sanctum', 'verified'])->get('check-egg',[CheckEggController::class,'index']);
 
+//หน้าไข่มีเชื้อ
 Route::middleware(['auth:sanctum', 'verified'])->get('breed-egg',[HomeController::class,'breedegg']);
 
+//หน้าผู้ใช้ทั้งหมด
 Route::middleware(['auth:sanctum', 'verified'])->get('all-user',[ManageUserController::class,'allUser']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('manage-specie',[ChickenSpecieController::class,'manageSpecie']);
@@ -85,11 +95,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/r
 //หน้าบันทึกการให้อาหาร
 Route::middleware(['auth:sanctum', 'verified'])->get('chicken/information/{id}/record-feed',[ChickenController::class,'getRecordFeed']);
 
-
-//-------------------------------backend------------------------------------
-
-//ส่งค่า sensor Middle
-Route::get('send-data-sensor',[SensorController::class,'sendDataSensor']);
+//หน้าทำนายเพศ
+Route::middleware(['auth:sanctum', 'verified'])->get('sexing',[SexingController::class,'index']);
 
 //หน้าตั้งรหัสผ่านใหม่
 Route::get('new-password',[NewPasswordController::class,'newPassword']);
@@ -99,6 +106,35 @@ Route::get('verify',[NewPasswordController::class,'verification']);
 
 //หน้า ลืมรหัสผ่าน
 Route::get('forget-password',[NewPasswordController::class,'index']);
+
+//link reset password From
+Route::get('/password/reset/{token}',[NewPasswordController::class,'newPasswordForm'])->name('reset.password.form');
+
+//หน้าเพิ่มไก่พันธุ์
+Route::middleware(['auth:sanctum', 'verified'])->get('/chicken/add-chicken',[ChickenController::class,'addChicken']);
+
+//หน้ารายงาน
+Route::middleware(['auth:sanctum', 'verified'])->get('/report',[ReportController::class,'index']);
+
+//หน้าจับคู่ผสมพันธุ์
+Route::middleware(['auth:sanctum', 'verified'])->get('/breed',[BreedController::class,'index']);
+
+//หน้าเปรียนเทียบการให้ผลผลิต
+Route::middleware(['auth:sanctum', 'verified'])->get('/compare-yield',[ComparisonController::class,'index']);
+
+//ผลการเปรียบเทียบการให้ผลผลิต
+Route::middleware(['auth:sanctum', 'verified'])->get('/compare-yield-result',[ComparisonController::class,'result']);
+
+// -------------------------------backend------------------------------------
+
+//ส่ง link reset password
+Route::post('/send-reset-link',[NewPasswordController::class,'sendResetLink']);
+
+//save reset password
+Route::post('/save-reset-password',[NewPasswordController::class,'resetPassword']);
+
+//ส่งค่า sensor Middle
+Route::get('send-data-sensor',[SensorController::class,'sendDataSensor']);
 
 //สมัคร
 Route::post('save-user',[RegisterController::class,'register']);
@@ -143,17 +179,14 @@ Route::get('delete-vaccine',[VaccineController::class,'delVaccine']);
 //อนุมัติบัญชีผู้ใช้
 Route::post('active-user',[ManageUserController::class,'activeUser']);
 
-//ส่ง otp 
-Route::get('send-otp',[NewPasswordController::class,'sendOtp']);
-
-//เช็ค OTP
-Route::post('check-otp',[NewPasswordController::class,'checkOtp']);
-
 //บันทึกรหัสผ่านใหม่ กรณีลืมรหัสผ่าน
 Route::post('save-new-password',[NewPasswordController::class,'saveNewPassword']);
 
 //บันทึกการแก้ไขโปรไฟล์
 Route::post('save-edit-profile',[SettingController::class,'saveEditProfile']);
+
+//บันทึกรหัสผ่านใหม่ในการตั้งค่า
+Route::post('save-password-profile',[SettingController::class,'saveNewPassword']);
 
 //เพิ่มระยะเติบโต
 Route::post('save-phase',[PhaseController::class,'savePhase']);
@@ -163,3 +196,25 @@ Route::post('edit-phase',[PhaseController::class,'editPhase']);
 
 //ลบระยะเติบโต
 Route::get('delete-phase',[PhaseController::class,'delPhase']);
+
+//บันทึกไก่พันธุ์
+Route::post('add-new-chicken',[ChickenController::class,'saveAddChicken']);
+
+//แก้ไขน้ำหนัก
+Route::post('save-edit-record-weight',[ChickenController::class,'editRecordWeight']);
+
+//ลบน้ำหนัก
+Route::get('del-record-weight',[ChickenController::class,'delRecordWeight']);
+
+//แก้ไขการฉีดวัคซีน
+Route::post('save-edit-record-vaccine',[ChickenController::class,'editRecordVaccine']);
+
+//ลบการฉีดวัคซีน
+Route::get('del-record-vaccine',[ChickenController::class,'delRecordVaccine']);
+
+//แก้ไขคู่ผสมพันธฺุ์
+Route::post('save-edit-record-breed',[ChickenController::class,'editRecordBreed']);
+
+//คู่ผสมพันธฺุ์
+Route::get('del-record-breed',[ChickenController::class,'delRecordBreed']);
+

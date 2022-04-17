@@ -30,13 +30,13 @@
                 <div class="bread">></div>
                 <div class="namepage"><a href="/chicken/all">ค้นหาไก่พันธุ์</a></div>
                 <div class="bread">></div>
-                <div class="namepage"><a href="/chicken/information/{{$id}}">ไก่พันธุ์หมายเลข {{$id}}</a></div>
+                <div class="namepage"><a href="/chicken/information/{{$id}}">ไก่พันธุ์รหัส {{$id}}</a></div>
                 <div class="bread">></div>
                 <div class="namepage"><a href="#">ตารางการให้ไข่</a></div>
             </div>
             <div class="content">
                 <div class="box_content">
-                    <h2>หมายเลขไก่พันธุ์ : {{$id}}</h2>
+                    <h2>ไก่พันธุ์รหัส : {{$id}}</h2>
                     <div class="title_table">
                         <table class="table_egg">
                             <tr class="table_title">
@@ -105,6 +105,9 @@
     <script src="{{asset('./js/slider.js')}}"></script>
     <script src="{{asset('./js/table.js')}}"></script>
     <script src="{{asset('./js/popup.js')}}"></script>
+    <script>
+        $('#menu').addClass('active_page');
+    </script>
 </body>
 
 </html>

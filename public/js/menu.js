@@ -16,8 +16,12 @@ $('body').on('click',function(event){
     }
 });
 
-$('.popup').on('click',(event) =>{
-    if($(event.target).is('.popup')){
-      $('.popup').hide();
-    }
+$('input:radio[name="layout"]').change(function () {
+    $(".contain_chicken").toggleClass("list");
 });
+$('.add_chicken').on('click', () => {
+    $(".popup").show();
+})
+$('.bxs-x-circle').on('click', () => {
+    $(".popup").hide();
+})

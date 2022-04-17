@@ -7,6 +7,13 @@ h4{
     margin-bottom: 10px;
 }
 
+.vid{
+    border-radius: 5px;
+    font-size:20px ;
+    border: 2px solid black;
+    width: 210px;
+}
+
 .box_content{
     overflow: auto;
     min-height: 50vh;
@@ -38,13 +45,13 @@ h4{
 }
 
 .list_egg td:first-child{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .list_egg td:last-child{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .list_egg:nth-child(odd){
@@ -56,13 +63,13 @@ h4{
 }
 
 .table_title th:first-child:not(.table_title_sup th){
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .table_title th:last-child:not(.table_title_sup th){
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -117,6 +124,7 @@ h4{
 }
 
 .popup{
+    background: rgba(0, 0, 0, 0.116);
     display: none;
     justify-content: center;
     align-items: center;
@@ -126,7 +134,7 @@ h4{
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.158);
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
     padding: 1.2rem;
 }
 
@@ -301,17 +309,10 @@ h4{
         padding-bottom: 30px;
     }
     
-    .record{
-        padding: 0px 10px;
+    .record,.title_table{
+        padding: 0px;
         padding-left: 0;
-        width: 97%;
-    }
-
-    
-    .title_table{
-        padding: 0px 10px;
-        padding-left: 0;
-        width: 97%;
+        width: 100%;
     }
     
     .table_egg .table_title th{
@@ -328,4 +329,30 @@ h4{
         font-size: 14px;
         padding: 10px 5px;
     }
+
+    #old-feed, #new-feed{
+        width: 100%;
+    }
+    
+    #type-vaccin{
+        width: 100%;
+    }
+    
+    #chicken-bred{
+        width: 100%;
+    }
+    
+    #die-chicken{
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px) {
+    .table_egg .table_title th{
+        font-size: 14px;
+    }
+    .record,.title_table{
+        min-width: 300px;
+    }
+    
 }

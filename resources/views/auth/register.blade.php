@@ -25,13 +25,13 @@
             </div>
             <form action="save-user" method="POST">
                 @csrf
-                <div class="type">
+                {{-- <div class="type">
                     <p>ประเภทผู้ใช้งาน :</p>
                     <input type="radio" name="type" id="std" checked onclick="setId(1)">
                     <label for="std" onclick="setId(1)">นักศึกษา</label>
                     <input type="radio" name="type" id="te" onclick="setId(2)">
                     <label for="te" onclick="setId(2)">อาจารย์</label>
-                </div>
+                </div> --}}
                 <div class="type">
                     <p>คำนำหน้าชื่อ :</p>
                     <select name="titlename" id="title" required>
@@ -42,7 +42,7 @@
                     </select>
                 </div>
                 <p>รหัสนักศึกษา : @if(session('error-std_id'))<span style="color: red">{{ session('error-std_id') }}</span> @endif</p>
-                <input type="text" pattern="[0-9]{9}[-][0-9]{1}" name="std_id" id="id" required @if(session('reg-std_id')) value="{{ session('reg-std_id' ) }}"  @endif>
+                <input type="text" pattern="[0-9]{9}[-][0-9]{1}" name="std_id" id="id" @if(session('reg-std_id')) value="{{ session('reg-std_id' ) }}"  @endif>
                 <div class="name">
                     <div class="text">
                         <p>ชื่อ :</p>

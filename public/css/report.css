@@ -1,0 +1,61 @@
+.box_content{
+    min-height: 650px;
+}
+
+.list_egg>td{
+    padding: 10px 5px;
+}
+
+.coop>samp{
+    font-weight: bold;
+}
+
+#work{
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 2px;
+    outline: none;
+    border: 2px solid rgb(49, 49, 49);
+    box-shadow: 2px 4px 4px rgba(81, 147, 179, 0.35);
+}
+
+
+@media (max-width: 768px) {
+    .trow3,.brow3{
+        display: none;
+    }
+
+}
+@media (max-width: 669px) {
+    .show_chicken{
+        display: block;
+    }
+
+    .coop{
+        margin-bottom: 20px;
+    }
+
+    .record{
+        padding: 0px 0px;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    
+    .title_table{
+        padding: 0px 0px;
+        padding-left: 0;
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .table_egg .table_title th{
+        font-size: 14px;
+    }
+    .record,.title_table{
+        min-width: 300px;
+    }
+    
+}

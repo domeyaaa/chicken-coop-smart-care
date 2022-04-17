@@ -170,8 +170,8 @@
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="{{asset('./js/jquery.js')}}"></script>
+    <script src="{{asset('./js/menu.js')}}"></script>
     <script>
         $('.add_chicken').on('click', () => {
             $(".popup_add").show();

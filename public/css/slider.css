@@ -59,6 +59,11 @@
     border: none;
     outline: none;
     z-index: 100;
+    transition: .3s;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    transform: scale(1.2);
 }
 
 .slick-prev {

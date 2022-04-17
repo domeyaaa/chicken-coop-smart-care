@@ -24,5 +24,7 @@ class chicken extends Model
         'weight_first_egg'
     ];
 
+    protected $table = 'chickens';
+
     public $incrementing = false;
 }
