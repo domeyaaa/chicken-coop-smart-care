@@ -15,13 +15,16 @@ class SettingController extends Controller
         $role = Auth::user()->role;
 
         if ($role == 'user') {
-            $role = Auth::user()->role;
             $id = Auth::user()->id;
             $profile = User::find($id);
 
             return view('setting', compact('profile'));
 
-        } else {
+        } elseif($role == 'admin' || $role == 'superadmin') {
+            $id = Auth::user()->id;
+            $profile = User::find($id);
+            return view('admin.setting', compact('profile'));
+        }else{
             return redirect('/');
         }
     }

@@ -24,7 +24,7 @@
             <span class="tooltip">บันทึกและจัดการ</span>
         </li>
         <li>
-            <a href="#" id="setting">
+            <a href="/setting" id="setting">
                 <i class='bx bx-cog'></i>
                 <span class="link_name">ตั้งค่า</span>
             </a>
