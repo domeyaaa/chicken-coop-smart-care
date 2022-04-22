@@ -198,7 +198,7 @@
         function del(id, name) {
             $(".popup_delete").show();
             $('#del_name').text(name);
-            $('a.submit').attr('href', 'delete-specie?id=' + id)
+            $('a.submit_delete').attr('href', 'delete-specie?id=' + id)
         }
 
         function success(x) {
